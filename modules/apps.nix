@@ -4,8 +4,8 @@
 
     firefox google-chrome
 
-    zed-editor dbeaver-bin
+    zed-editor dbeaver-bin playwright-test
 
-    mise playwright-test
+    mise uv
   ];
 }
