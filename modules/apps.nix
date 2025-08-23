@@ -5,5 +5,7 @@
     firefox google-chrome
 
     zed-editor dbeaver-bin
+
+    playwright-test
   ];
 }
