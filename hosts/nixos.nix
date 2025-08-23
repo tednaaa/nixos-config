@@ -1,8 +1,12 @@
 { ... }: {
   imports = [
+    ../modules/apps.nix
     ../modules/base.nix
-    ../modules/desktop.nix
     ../modules/fonts.nix
+    ../modules/hyprland.nix
+    ../modules/lsp.nix
+    ../modules/sound.nix
+    ../modules/terminal.nix
     ../modules/users.nix
     ./hardware-configuration.nix
   ];
