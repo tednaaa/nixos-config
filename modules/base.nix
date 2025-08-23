@@ -13,11 +13,10 @@
   hardware.bluetooth.enable = true;
 
   # nvidia 580 broken for wayland, will wait some time for fix
-  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_575;
   services.xserver.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.graphics.enable = true;
-  hardware.nvidia.open = false;
+  hardware.nvidia.open = true;
 
   nix.gc = {
     automatic = true;

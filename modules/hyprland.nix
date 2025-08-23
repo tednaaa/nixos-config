@@ -18,6 +18,7 @@
     pulseaudio # to use pactl
     brightnessctl
     waybar
+    libnotify
     swaynotificationcenter
     rofi
 
