@@ -1,6 +1,5 @@
 ```fish
-cd ~/nixos-config
-nixos-rebuild switch --flake ~/nixos-config#nixos
+sudo nixos-rebuild switch --flake ~/nixos-config#nixos
 ```
 
 ```fish
