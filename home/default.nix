@@ -3,26 +3,27 @@ let
   dotfiles = "${config.home.homeDirectory}/dotfiles/.configs";
 
   symlinks = {
-    "hypr"              = ".config/hypr";
-    "waybar"            = ".config/waybar";
-    "rofi"              = ".config/rofi";
-    "yazi"              = ".config/yazi";
+    "hypr"   = ".config/hypr"
+    "waybar" = ".config/waybar"
+    "rofi"   = ".config/rofi"
+    "yazi"   = ".config/yazi"
+    "satty"  = ".config/satty"
 
-    "alacritty"         = ".config/alacritty";
-    "zellij"            = ".config/zellij";
+    "fish/config.fish" = ".config/fish/config.fish"
+    "fish/functions"   = ".config/fish/functions"
 
-    "zed"               = ".config/zed";
+    "zellij"  = ".config/zellij"
+    "zed"     = ".config/zed"
+    "lazygit" = ".config/lazygit"
 
-    "lazygit"           = ".config/lazygit";
-
-    "fish/config.fish"  = ".config/fish/config.fish";
-    "git/.gitconfig"    = ".gitconfig";
-    "npm/.npmrc"        = ".npmrc";
+    "git/.gitconfig" = ".gitconfig"
+    "npm/.npmrc"     = ".npmrc"
   };
 
-  mkLinks = lib.mapAttrs' (src: target: {
+  mkLinks = lib.mapAttrs (src: target: {
     name = target;
     value.source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/${src}";
+    value.recursive = true;
   }) symlinks;
 
 in {
@@ -35,4 +36,6 @@ in {
   programs.fish.enable = false;
 
   home.file = mkLinks;
+
+  imports = [ ./alacritty.nix ];
 }
