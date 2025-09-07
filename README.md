@@ -1,7 +1,3 @@
 ```fish
-sudo nixos-rebuild switch --flake ~/nixos-config#nixos
-```
-
-```fish
-nix flake update; nixos-rebuild switch --flake ~/nixos-config#nixos
+nix flake update; sudo nixos-rebuild switch --flake ~/nixos-config#nixos
 ```
