@@ -6,6 +6,6 @@
 
     zed-editor dbeaver-bin playwright-test
 
-    mise uv
+    # mise uv
   ];
 }

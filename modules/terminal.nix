@@ -14,6 +14,8 @@
     kubectl kubernetes-helm k9s
 
     doctl ansible terraform
+
+    nixd
   ];
 
   virtualisation.docker.enable = true;

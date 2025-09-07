@@ -7,7 +7,4 @@
   };
 
   programs.fish.enable = true;
-  programs.fish.interactiveShellInit = "";
-
-  programs.firefox.enable = true;
 }

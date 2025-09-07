@@ -12,11 +12,19 @@
 
   hardware.bluetooth.enable = true;
 
+  services.pulseaudio.enable = false;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
+
   # nvidia 580 broken for wayland, will wait some time for fix
   services.xserver.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.graphics.enable = true;
-  hardware.nvidia.open = true;
+  hardware.nvidia.open = false;
 
   nix.gc = {
     automatic = true;
