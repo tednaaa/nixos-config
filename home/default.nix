@@ -3,39 +3,36 @@ let
   dotfiles = "${config.home.homeDirectory}/dotfiles/.configs";
 
   symlinks = {
-    "hypr"   = ".config/hypr"
-    "waybar" = ".config/waybar"
-    "rofi"   = ".config/rofi"
-    "yazi"   = ".config/yazi"
-    "satty"  = ".config/satty"
+    "hypr"   = ".config/hypr";
+    "waybar" = ".config/waybar";
+    "rofi"   = ".config/rofi";
+    "yazi"   = ".config/yazi";
+    "satty"  = ".config/satty";
 
-    "fish/config.fish" = ".config/fish/config.fish"
-    "fish/functions"   = ".config/fish/functions"
+    "fish/config.fish" = ".config/fish/config.fish";
+    "fish/functions"   = ".config/fish/functions";
 
-    "zellij"  = ".config/zellij"
-    "zed"     = ".config/zed"
-    "lazygit" = ".config/lazygit"
+    "zellij"  = ".config/zellij";
+    "zed"     = ".config/zed";
+    "lazygit" = ".config/lazygit";
 
-    "git/.gitconfig" = ".gitconfig"
-    "npm/.npmrc"     = ".npmrc"
+    "git/.gitconfig" = ".gitconfig";
+    "npm/.npmrc"     = ".npmrc";
   };
 
   mkLinks = lib.mapAttrs (src: target: {
-    name = target;
-    value.source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/${src}";
-    value.recursive = true;
+    source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/${src}";
+    recursive = true;
   }) symlinks;
 
 in {
+  imports = [ ./alacritty.nix ];
+
   home.username = "tedna";
   home.homeDirectory = "/home/tedna";
   home.stateVersion = "25.11";
 
-  programs.git.enable = true;
   programs.starship.enable = true;
-  programs.fish.enable = false;
 
   home.file = mkLinks;
-
-  imports = [ ./alacritty.nix ];
 }

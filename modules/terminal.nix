@@ -1,6 +1,6 @@
 { pkgs, ... }: {
   environment.systemPackages = with pkgs; [
-    alacritty zellij starship neovim
+    zellij neovim
 
     btop ripgrep zoxide eza fd bat fzf jq
     yazi ueberzugpp resvg tabiew
