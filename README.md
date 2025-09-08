@@ -8,9 +8,9 @@ cd /mnt/home
 git clone .../dotfiles
 git clone .../nixos-config
 
-cp /mnt/etc/nixos/hardware-configuration.nix ./hosts/hardware-configuration.nix
+cp /mnt/etc/nixos/hardware-configuration.nix ./nixos-config/hosts/hardware-configuration.nix
 
-sudo nixos-install --flake .
+nixos-install --flake ./nixos-config
 ```
 
 ### Update system
