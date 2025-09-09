@@ -1,16 +1,14 @@
 { config, pkgs, lib, ... }:
 let
   dotfiles = "${config.home.homeDirectory}/dotfiles/.configs";
+  home_dots = "${config.home.homeDirectory}/nixos-config/home";
 
-  symlinks = {
+  external_symlinks = {
     "hypr"   = ".config/hypr";
     "waybar" = ".config/waybar";
     "rofi"   = ".config/rofi";
     "yazi"   = ".config/yazi";
     "satty"  = ".config/satty";
-
-    "fish/config.fish" = ".config/fish/config.fish";
-    "fish/functions"   = ".config/fish/functions";
 
     "zellij"  = ".config/zellij";
     "zed"     = ".config/zed";
@@ -20,13 +18,22 @@ let
     "npm/.npmrc"     = ".npmrc";
   };
 
-  mkLinks = lib.mapAttrs' (src: target: {
-    name = target;
-    value = {
-      source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/${src}";
-    };
-  }) symlinks;
+  home_dots_symlinks = {
+    "fish/config.fish" = ".config/fish/config.fish";
+    "fish/functions"   = ".config/fish/functions";
+  };
 
+  mkExternalLinks = lib.mapAttrs' (src: target: {
+    name = target;
+    value.source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/${src}";
+  }) external_symlinks;
+
+  mkHomeDotsLinks = lib.mapAttrs' (src: target: {
+    name = target;
+    value.source = config.lib.file.mkOutOfStoreSymlink "${home_dots}/${src}";
+  }) home_dots_symlinks;
+
+  allLinks = mkExternalLinks // mkHomeDotsLinks;
 in {
   imports = [ ./theme.nix ./alacritty.nix ];
 
@@ -34,5 +41,5 @@ in {
   home.homeDirectory = "/home/tedna";
   home.stateVersion = "25.11";
 
-  home.file = mkLinks;
+  home.file = allLinks;
 }
