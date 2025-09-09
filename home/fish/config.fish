@@ -8,7 +8,6 @@ set -gx EDITOR "zeditor --wait"
 
 source ~/.config/fish/functions/*.fish
 
-source ~/.cargo/env.fish
 mise activate fish | source
 starship init fish | source
 zoxide init fish | source
