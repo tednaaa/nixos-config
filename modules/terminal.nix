@@ -16,6 +16,8 @@
     doctl ansible terraform
 
     nixd
+
+    pnpm
   ];
 
   virtualisation.docker.enable = true;

@@ -20,7 +20,6 @@
     pulse.enable = true;
   };
 
-  # nvidia 580 broken for wayland, will wait some time for fix
   services.xserver.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.graphics.enable = true;

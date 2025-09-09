@@ -20,13 +20,15 @@ let
     "npm/.npmrc"     = ".npmrc";
   };
 
-  mkLinks = lib.mapAttrs (src: target: {
-    source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/${src}";
-    recursive = true;
+  mkLinks = lib.mapAttrs' (src: target: {
+    name = target;
+    value = {
+      source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/${src}";
+    };
   }) symlinks;
 
 in {
-  imports = [ ./alacritty.nix ];
+  imports = [ ./theme.nix ./alacritty.nix ];
 
   home.username = "tedna";
   home.homeDirectory = "/home/tedna";
