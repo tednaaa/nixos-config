@@ -8,25 +8,15 @@
   # environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   environment.systemPackages = with pkgs; [
-    hyprpaper hyprlock hyprshot
-
+    hyprpaper hyprlock
     xdg-desktop-portal-hyprland xdg-desktop-portal-gtk
-
-    pulseaudio # to use pactl
-    brightnessctl
-    waybar
-    libnotify
-    swaynotificationcenter
-    rofi
+    pulseaudio pavucontrol brightnessctl
+    libnotify swaynotificationcenter
+    waybar rofi satty grim slurp
+    apple-cursor papirus-icon-theme orchis-theme
+    mpv clipse bluetui p7zip  wl-clipboard
 
     kdePackages.dolphin
-    mpv
-    clipse
-    bluetui
-    pavucontrol
-    p7zip
-    wl-clipboard
-    apple-cursor papirus-icon-theme orchis-theme
   ];
 
   services.power-profiles-daemon.enable = true;
