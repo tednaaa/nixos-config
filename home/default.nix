@@ -9,8 +9,8 @@ let
     "yazi"   = ".config/yazi";
     "satty"  = ".config/satty";
 
-    # "fish/config.fish" = ".config/fish/config.fish";
-    # "fish/functions"   = ".config/fish/functions";
+    "fish/config.fish" = ".config/fish/config.fish";
+    "fish/functions"   = ".config/fish/functions";
 
     "zellij"  = ".config/zellij";
     "zed"     = ".config/zed";
@@ -33,8 +33,6 @@ in {
   home.username = "tedna";
   home.homeDirectory = "/home/tedna";
   home.stateVersion = "25.11";
-
-  programs.starship.enable = true;
 
   home.file = mkLinks;
 }
