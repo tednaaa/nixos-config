@@ -1,8 +1,8 @@
-{ pkgs, ... }: {
-  users.users.tedna = {
+{ pkgs, username, ... }: {
+  users.users.${username} = {
     isNormalUser = true;
     description = "Andranik";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.fish;
   };
 

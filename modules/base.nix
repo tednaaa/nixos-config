@@ -1,8 +1,10 @@
 { config, pkgs, ... }: {
+  system.stateVersion = "25.11";
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages;
 
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
