@@ -11,10 +11,10 @@
   gtk = {
     enable = true;
 
-    # theme = {
-    #   package = pkgs.orchis-theme;
-    #   name = "Orchis-Dark";
-    # };
+    theme = {
+      package = pkgs.orchis-theme;
+      name = "Orchis-Dark";
+    };
 
     iconTheme = {
       package = pkgs.papirus-icon-theme;
@@ -24,6 +24,19 @@
     font = {
       name = "Noto Sans Medium";
       size = 11;
+    };
+
+    gtk3.extraConfig = ''
+      gtk-application-prefer-dark-theme=1
+    '';
+    gtk4.extraConfig = ''
+      gtk-application-prefer-dark-theme=1
+    '';
+  };
+
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
     };
   };
 }
