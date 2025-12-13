@@ -1,5 +1,15 @@
-{ config, pkgs, ... }:
 {
+  config,
+  pkgs,
+  username,
+  ...
+}:
+{
+  nix.settings.trusted-users = [
+    "root"
+    username
+  ];
+
   system.stateVersion = "25.11";
   nix.settings.experimental-features = [
     "nix-command"

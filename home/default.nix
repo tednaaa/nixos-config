@@ -2,6 +2,7 @@
   config,
   pkgs,
   lib,
+  username,
   ...
 }:
 let
@@ -52,8 +53,8 @@ in
     ./alacritty.nix
   ];
 
-  home.username = "tedna";
-  home.homeDirectory = "/home/tedna";
+  home.username = username;
+  home.homeDirectory = "/home/${username}";
   home.stateVersion = "25.11";
 
   home.file = allLinks;
