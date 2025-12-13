@@ -8,6 +8,5 @@ alias zed="zeditor"
 
 set -gx EDITOR "zed --wait"
 
-mise activate fish | source
 starship init fish | source
 zoxide init fish | source
