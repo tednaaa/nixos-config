@@ -1,10 +1,6 @@
 { pkgs, ... }:
 {
   programs = {
-    # remove later
-    regreet.enable = false;
-    waybar.enable = false;
-
     niri.enable = true;
   };
 
@@ -40,6 +36,7 @@
     swaybg
     swaynotificationcenter
 
+    pulseaudio
     pavucontrol
     brightnessctl
     libnotify
