@@ -1,5 +1,8 @@
 { pkgs, ... }:
 {
+  # remove later
+  programs.dconf.enable = false;
+
   programs = {
     niri.enable = true;
   };
@@ -55,6 +58,6 @@
     wl-clip-persist
     bluetui
     p7zip
-    kdePackages.dolphin
+    nautilus
   ];
 }
