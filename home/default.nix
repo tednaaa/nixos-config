@@ -1,26 +1,37 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 let
   dotfiles = "${config.home.homeDirectory}/dotfiles/.configs";
   home_dots = "${config.home.homeDirectory}/nixos-config/home";
 
   external_symlinks = {
-    "hypr"   = ".config/hypr";
-    "waybar" = ".config/waybar";
-    "rofi"   = ".config/rofi";
-    "yazi"   = ".config/yazi";
-    "satty"  = ".config/satty";
+    "niri" = ".config/niri";
+    "hypr" = ".config/hypr";
 
-    "zellij"  = ".config/zellij";
-    "zed"     = ".config/zed";
+    "waybar" = ".config/waybar";
+    "rofi" = ".config/rofi";
+    "yazi" = ".config/yazi";
+    "satty" = ".config/satty";
+
+    "wallpapers" = ".config/wallpapers";
+
+    "zellij" = ".config/zellij";
+    "zed" = ".config/zed";
+
     "lazygit" = ".config/lazygit";
+    "lazydocker" = ".config/lazydocker";
 
     "git/.gitconfig" = ".gitconfig";
-    "npm/.npmrc"     = ".npmrc";
+    "npm/.npmrc" = ".npmrc";
   };
 
   home_dots_symlinks = {
     "fish/config.fish" = ".config/fish/config.fish";
-    "fish/functions"   = ".config/fish/functions";
+    "fish/functions" = ".config/fish/functions";
   };
 
   mkExternalLinks = lib.mapAttrs' (src: target: {
@@ -34,8 +45,12 @@ let
   }) home_dots_symlinks;
 
   allLinks = mkExternalLinks // mkHomeDotsLinks;
-in {
-  imports = [ ./theme.nix ./alacritty.nix ];
+in
+{
+  imports = [
+    ./theme.nix
+    ./alacritty.nix
+  ];
 
   home.username = "tedna";
   home.homeDirectory = "/home/tedna";

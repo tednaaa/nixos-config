@@ -3,10 +3,9 @@ if status is-interactive
 end
 
 alias ls="eza --all --icons -l --no-user -o"
+alias k="kubectl"
 
 set -gx EDITOR "zeditor --wait"
-
-source ~/.config/fish/functions/*.fish
 
 mise activate fish | source
 starship init fish | source

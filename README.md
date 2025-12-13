@@ -10,11 +10,11 @@ git clone .../nixos-config
 
 cp /mnt/etc/nixos/hardware-configuration.nix ./nixos-config/hosts/hardware-configuration.nix
 
-nixos-install --flake ./nixos-config
+nixos-install --flake ./nixos-config#nixos
 ```
 
 ### Update system
 
 ```fish
-nix flake update; sudo nixos-rebuild switch --flake ~/nixos-config
+nix flake update; sudo nixos-rebuild boot --flake ~/nixos-config
 ```
