@@ -6,8 +6,11 @@
     "flakes"
   ];
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.limine.enable = true;
+  # TODO: remove later, use limine instead
+  # boot.loader.systemd-boot.enable = true;
+  # boot.loader.efi.canTouchEfiVariables = true;
+
   boot.kernelPackages = pkgs.linuxPackages;
 
   networking.hostName = "nixos";
