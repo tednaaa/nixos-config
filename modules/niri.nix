@@ -15,6 +15,12 @@
     pam.services.swaylock = { };
   };
 
+  xdg.portal = {
+    enable = true;
+    xdgOpenUsePortal = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  };
+
   # https://wiki.nixos.org/wiki/Wayland#Electron_and_Chromium
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
