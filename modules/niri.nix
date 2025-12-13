@@ -6,6 +6,8 @@
   };
 
   services = {
+    displayManager.ly.enable = true;
+
     gnome.gnome-keyring.enable = true;
     power-profiles-daemon.enable = true;
   };
@@ -18,16 +20,16 @@
   xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gnome
+      pkgs.xdg-desktop-portal-gtk
+    ];
   };
 
   # https://wiki.nixos.org/wiki/Wayland#Electron_and_Chromium
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   environment.systemPackages = with pkgs; [
-    ly
-    xdg-desktop-portal-gnome
-    xdg-desktop-portal-gtk
     rofi
     swaylock
     swaybg
