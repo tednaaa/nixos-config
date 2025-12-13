@@ -48,10 +48,6 @@
     grim
     slurp
 
-    apple-cursor
-    papirus-icon-theme
-    orchis-theme
-
     mpv
     clipse
     wl-clipboard
