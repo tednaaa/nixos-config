@@ -4,8 +4,9 @@ end
 
 alias ls="eza --all --icons -l --no-user -o"
 alias k="kubectl"
+alias zed="zeditor"
 
-set -gx EDITOR "zeditor --wait"
+set -gx EDITOR "zed --wait"
 
 mise activate fish | source
 starship init fish | source
