@@ -1,13 +1,15 @@
 { pkgs, ... }:
 {
   programs = {
+    # remove later
+    regreet.enable = false;
+    waybar.enable = false;
+
     niri.enable = true;
-    waybar.enable = true;
   };
 
   services = {
-    displayManager.ly.enable = true;
-
+    displayManager.gdm.enable = true;
     gnome.gnome-keyring.enable = true;
     power-profiles-daemon.enable = true;
   };
@@ -20,8 +22,8 @@
   xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;
+    wlr.enable = true;
     extraPortals = [
-      pkgs.xdg-desktop-portal-gnome
       pkgs.xdg-desktop-portal-gtk
     ];
   };
@@ -30,26 +32,32 @@
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   environment.systemPackages = with pkgs; [
+    xwayland-satellite
     rofi
+    waybar
+
     swaylock
     swaybg
     swaynotificationcenter
+
     pavucontrol
     brightnessctl
     libnotify
+
     satty
     grim
     slurp
+
     apple-cursor
     papirus-icon-theme
     orchis-theme
+
     mpv
     clipse
     wl-clipboard
     wl-clip-persist
     bluetui
     p7zip
-
     kdePackages.dolphin
   ];
 }

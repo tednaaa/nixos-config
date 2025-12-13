@@ -6,12 +6,12 @@
     "flakes"
   ];
 
-  boot.loader.limine.enable = true;
-  # TODO: remove later, use limine instead
-  # boot.loader.systemd-boot.enable = true;
-  # boot.loader.efi.canTouchEfiVariables = true;
-
   boot.kernelPackages = pkgs.linuxPackages;
+  boot.loader = {
+    limine.enable = true;
+    systemd-boot.enable = false;
+    efi.canTouchEfiVariables = true;
+  };
 
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
@@ -31,6 +31,7 @@
 
   services.xserver.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.nvidia.modesetting.enable = true;
   hardware.graphics.enable = true;
   hardware.nvidia.open = false;
 

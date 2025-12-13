@@ -13,8 +13,8 @@ cp /mnt/etc/nixos/hardware-configuration.nix ./nixos-config/hosts/hardware-confi
 nixos-install --flake ./nixos-config#nixos
 ```
 
-### Update system
+### Update system, inside `~/nixos-config`
 
 ```fish
-nix flake update; sudo nixos-rebuild boot --flake ~/nixos-config
+nix flake update; sudo nixos-rebuild boot --flake .
 ```
