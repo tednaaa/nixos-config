@@ -2,7 +2,7 @@
   environment.systemPackages = with pkgs; [
     zed-editor neovim
     zellij starship fastfetch
-    dbeaver-bin dbgate
+    postgresql_18 dbeaver-bin dbgate
     tabiew btop
     yazi ueberzugpp resvg
     fzf jq ripgrep zoxide eza fd bat
