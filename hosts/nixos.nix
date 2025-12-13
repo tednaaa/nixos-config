@@ -5,7 +5,7 @@
     ../modules/base.nix
     ../modules/fonts.nix
     ../modules/gaming.nix
-    ../modules/terminal.nix
+    ../modules/dev.nix
     ../modules/users.nix
 
     ../modules/niri.nix

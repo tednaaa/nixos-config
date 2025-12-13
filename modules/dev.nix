@@ -1,6 +1,8 @@
 { pkgs, ... }: {
   environment.systemPackages = with pkgs; [
-    zellij neovim starship fastfetch
+    zed-editor neovim
+    zellij starship fastfetch
+    dbeaver-bin dbgate
     tabiew btop
     yazi ueberzugpp resvg
     fzf jq ripgrep zoxide eza fd bat
@@ -12,11 +14,14 @@
 
     # LSP
     nixd nil gitlab-ci-ls
+    playwright-test
   ];
-
-  virtualisation.docker.enable = true;
-  virtualisation.docker.rootless = {
+  
+  virtualisation.docker = {
     enable = true;
-    setSocketVariable = true;
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
   };
 }
