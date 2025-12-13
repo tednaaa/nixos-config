@@ -7,9 +7,7 @@
     ../modules/gaming.nix
     ../modules/dev.nix
     ../modules/users.nix
-
     ../modules/niri.nix
-    # ../modules/hyprland.nix
 
     ./hardware-configuration.nix
   ];
