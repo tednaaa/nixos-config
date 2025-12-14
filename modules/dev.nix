@@ -58,7 +58,11 @@
     ansible
     opentofu
     fluxcd
+
     devenv
+    direnv
+    uv
+    pnpm
 
     playwright-test
 
