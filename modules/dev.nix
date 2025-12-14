@@ -64,8 +64,6 @@
     uv
     pnpm
 
-    playwright-test
-
     # LSP
     nixd
     nil
