@@ -16,11 +16,11 @@ nixos-install --flake ./nixos-config#nixos
 ### Update system, inside `~/nixos-config`
 
 ```fish
-nix flake update; nixos-rebuild boot --flake .
+nix flake update; sudo nixos-rebuild boot --flake .
 ```
 
 also
 
 ```fish
-nixos-rebuild switch --flake .
+sudo nixos-rebuild switch --flake .
 ```
