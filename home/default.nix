@@ -51,6 +51,7 @@ in
   imports = [
     ./theme.nix
     ./alacritty.nix
+    ./direnv.nix
   ];
 
   home.username = username;

@@ -60,7 +60,6 @@
     fluxcd
 
     devenv
-    direnv
     uv
     pnpm
 
