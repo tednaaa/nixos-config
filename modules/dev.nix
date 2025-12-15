@@ -13,14 +13,6 @@
       enable = true;
       setSocketVariable = true;
     };
-
-    daemon.settings = {
-      dns = [
-        "192.168.0.1"
-        "1.1.1.1"
-        "8.8.8.8"
-      ];
-    };
   };
 
   environment.systemPackages = with pkgs; [
