@@ -46,6 +46,7 @@
     bind
     cmake
 
+    docker-buildx
     docker-compose
     lazydocker
 
