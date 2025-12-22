@@ -18,6 +18,7 @@
   environment.systemPackages = with pkgs; [
     zed-editor
     neovim
+    cursor-cli
     zellij
     starship
     fastfetch
