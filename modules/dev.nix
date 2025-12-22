@@ -26,7 +26,6 @@
     dbeaver-bin
     dbgate
     tabiew
-    btop
     yazi
     ueberzugpp
     resvg
