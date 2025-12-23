@@ -18,6 +18,7 @@
   environment.systemPackages = with pkgs; [
     zed-editor
     neovim
+    code-cursor
     cursor-cli
     zellij
     starship
