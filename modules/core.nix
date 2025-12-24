@@ -25,6 +25,12 @@
 
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
+  networking.networkmanager.dns = "none";
+  networking.nameservers = [
+    "1.1.1.1"
+    "1.0.0.1"
+    "8.8.8.8"
+  ];
 
   time.timeZone = "Asia/Yerevan";
   i18n.defaultLocale = "en_US.UTF-8";
