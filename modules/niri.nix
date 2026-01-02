@@ -1,8 +1,5 @@
 { pkgs, ... }:
 {
-  # remove later
-  programs.dconf.enable = false;
-
   programs = {
     niri.enable = true;
   };
