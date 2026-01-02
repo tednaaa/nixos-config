@@ -19,6 +19,7 @@
     firewall = {
       enable = true;
       allowedTCPPorts = [ 55555 ]; # for minecraft
+      allowedUDPPorts = [ ];
     };
   };
 }
