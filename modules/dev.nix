@@ -41,7 +41,8 @@
     git
     delta
     lazygit
-    netcat-openbsd
+    # TODO: not working, glibc version is not compatible
+    # netcat-openbsd
     openssh
     rsync
     bind
