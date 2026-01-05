@@ -53,6 +53,7 @@ in
     ./alacritty.nix
     ./btop.nix
     ./direnv.nix
+    ./fastfetch/fastfetch.nix
   ];
 
   home.username = username;

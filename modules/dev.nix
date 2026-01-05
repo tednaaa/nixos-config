@@ -22,7 +22,6 @@
     cursor-cli
     zellij
     starship
-    fastfetch
     postgresql_18
     dbeaver-bin
     dbgate
