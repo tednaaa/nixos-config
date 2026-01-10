@@ -8,6 +8,7 @@
     displayManager.gdm.enable = true;
     gnome.gnome-keyring.enable = true;
     power-profiles-daemon.enable = true;
+    gvfs.enable = true;
   };
 
   security = {
