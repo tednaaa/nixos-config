@@ -20,6 +20,8 @@
     neovim
     code-cursor
     cursor-cli
+    opencode
+
     zellij
     starship
     fastfetch
