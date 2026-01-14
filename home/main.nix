@@ -51,7 +51,6 @@ in
   imports = [
     ./theme.nix
     ./alacritty.nix
-    ./ghostty.nix
     ./btop.nix
     ./direnv.nix
   ];
