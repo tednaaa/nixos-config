@@ -19,12 +19,12 @@
         src = fetchFromGitHub {
           owner = "ElyPrismLauncher";
           repo = "ElyPrismLauncher";
-          rev = "9.5";
-          hash = "sha256-gGG3A/UezlT3Tq8HMo3mJg7CS/vDByEeh1QxId0Qf2s=";
+          rev = "10.0.2";
+          hash = "sha256-p9gFdiVRQBIVMatq0v1lw+2ggSU3RV42u55O6w44L9E=";
         };
 
         pname = "elyprismlauncher";
-        version = "9.5";
+        version = "10.0.2";
       });
 
       jdks = [ jdk21 ];
