@@ -22,6 +22,8 @@
     cursor-cli
     opencode
 
+    godot
+
     zellij
     starship
     fastfetch
