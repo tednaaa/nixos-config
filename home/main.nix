@@ -10,9 +10,6 @@ let
   home_dots = "${config.home.homeDirectory}/nixos-config/home";
 
   external_symlinks = {
-    "niri" = ".config/niri";
-    "hypr" = ".config/hypr";
-
     "waybar" = ".config/waybar";
     "rofi" = ".config/rofi";
     "yazi" = ".config/yazi";
@@ -31,6 +28,8 @@ let
   };
 
   home_dots_symlinks = {
+    "niri" = ".config/niri";
+
     "fish/config.fish" = ".config/fish/config.fish";
     "fish/functions" = ".config/fish/functions";
   };
