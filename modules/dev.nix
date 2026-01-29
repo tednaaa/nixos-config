@@ -45,6 +45,8 @@
     git
     delta
     lazygit
+    (callPackage ../packages/resto.nix { })
+
     # TODO: not working, glibc version is not compatible
     # netcat-openbsd
     openssh
