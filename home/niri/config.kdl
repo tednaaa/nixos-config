@@ -5,6 +5,7 @@ workspace "terminal" { open-on-output "HDMI-A-1"; }
 input {
 	touchpad {
 		tap
+		scroll-factor vertical=0.5
 	}
 
 	focus-follows-mouse max-scroll-amount="0%"
