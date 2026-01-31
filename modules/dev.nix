@@ -36,6 +36,7 @@
     resvg
 
     fzf
+    skim
     jq
     ripgrep
     zoxide
