@@ -18,9 +18,9 @@
   environment.systemPackages = with pkgs; [
     zed-editor
     neovim
-    code-cursor
     cursor-cli
-    opencode
+    # code-cursor
+    # opencode
 
     godot
 
@@ -75,6 +75,6 @@
     # LSP
     nixd
     nil
-    gitlab-ci-ls
+    # gitlab-ci-ls
   ];
 }
