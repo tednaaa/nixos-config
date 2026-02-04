@@ -76,6 +76,7 @@
     # LSP
     nixd
     nil
+    nginx-language-server
     # gitlab-ci-ls
   ];
 }
