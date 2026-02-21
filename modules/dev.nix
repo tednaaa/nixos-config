@@ -78,6 +78,6 @@
     nixd
     nil
     nginx-language-server
-    # gitlab-ci-ls
+    gitlab-ci-ls
   ];
 }
