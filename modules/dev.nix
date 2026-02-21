@@ -55,7 +55,7 @@
     rsync
     bind
     cmake
-    ngrok
+    zrok
 
     docker-buildx
     docker-compose
