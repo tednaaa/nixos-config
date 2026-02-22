@@ -8,10 +8,11 @@
   };
 
   environment.systemPackages = with pkgs; [
-    # wine packages, support both 32-bit and 64-bit applications
-    wineWowPackages.stable
-    winetricks
-    wineWowPackages.waylandFull
+  	# -------------- temporary disabled
+    # winetricks
+    # wineWow64Packages.stable
+    # wineWow64Packages.waylandFull
+    # ----------------------------------
 
     # https://github.com/ElyPrismLauncher/ElyPrismLauncher
     (prismlauncher.override {
