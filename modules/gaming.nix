@@ -9,10 +9,10 @@
 
   environment.systemPackages = with pkgs; [
     # -------------- windows support
-    winetricks
-    wineWow64Packages.stable
-    wineWow64Packages.waylandFull
-    bottles
+    # winetricks
+    # wineWow64Packages.stable
+    # wineWow64Packages.waylandFull
+    # bottles
     # ----------------------------------
 
     # https://github.com/ElyPrismLauncher/ElyPrismLauncher

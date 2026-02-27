@@ -1,8 +1,5 @@
+{ pkgs, pkgs-unstable, ... }:
 {
-  pkgs,
-  pkgs-unstable,
-  ...
-}: {
   # run dynamically linked executables, need for zed
   programs.nix-ld = {
     enable = true;
@@ -19,7 +16,15 @@
   };
 
   environment.systemPackages =
-    (with pkgs-unstable; [
+    (with pkgs; [
+      openssh
+      rsync
+      bind
+      cmake
+      zrok
+      (callPackage ../packages/resto.nix { })
+    ])
+    ++ (with pkgs-unstable; [
       zed-editor
       neovim
       cursor-cli
@@ -55,7 +60,7 @@
       pnpm
 
       nixd
-      nil
+      nixfmt
       nginx-language-server
       gitlab-ci-ls
 
@@ -71,14 +76,5 @@
       ansible
       opentofu
       fluxcd
-    ])
-    ++ (with pkgs; [
-      openssh
-      rsync
-      bind
-      cmake
-      zrok
-
-      (callPackage ../packages/resto.nix {})
     ]);
 }

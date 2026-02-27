@@ -1,9 +1,4 @@
-{
-  config,
-  pkgs,
-  username,
-  ...
-}:
+{ ... }:
 {
   networking = {
     hostName = "nixos";
