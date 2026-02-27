@@ -8,10 +8,11 @@
   };
 
   environment.systemPackages = with pkgs; [
-    # -------------- temporary disabled
+    # -------------- windows support
     winetricks
     wineWow64Packages.stable
     wineWow64Packages.waylandFull
+    bottles
     # ----------------------------------
 
     # https://github.com/ElyPrismLauncher/ElyPrismLauncher
