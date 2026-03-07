@@ -1,4 +1,4 @@
-{ pkgs, pkgs-unstable, ... }:
+{ pkgs, ... }:
 {
   # run dynamically linked executables, need for zed
   programs.nix-ld = {
@@ -15,66 +15,68 @@
     };
   };
 
-  environment.systemPackages =
-    (with pkgs; [
-      openssh
-      rsync
-      bind
-      cmake
-      zrok
-      (callPackage ../packages/resto.nix { })
-    ])
-    ++ (with pkgs-unstable; [
-      zed-editor
-      neovim
-      cursor-cli
-      claude-code-bin
+  environment.systemPackages = with pkgs; [
+    zed-editor
+    neovim
+    cursor-cli
+    claude-code-bin
+    # code-cursor
+    # opencode
 
-      godot
+    godot
 
-      zellij
-      starship
-      fastfetch
-      postgresql_18
-      dbeaver-bin
-      dbgate
-      tabiew
-      yazi
-      ueberzugpp
-      resvg
+    zellij
+    starship
+    fastfetch
+    postgresql_18
+    dbeaver-bin
+    dbgate
+    tabiew
+    yazi
+    ueberzugpp
+    resvg
 
-      fzf
-      skim
-      jq
-      ripgrep
-      zoxide
-      eza
-      fd
-      bat
-      git
-      delta
-      lazygit
+    fzf
+    skim
+    jq
+    ripgrep
+    zoxide
+    eza
+    fd
+    bat
+    git
+    delta
+    lazygit
+    (callPackage ../packages/resto.nix { })
 
-      devenv
-      uv
-      pnpm
+    # TODO: not working, glibc version is not compatible
+    # netcat-openbsd
+    openssh
+    rsync
+    bind
+    cmake
+    zrok
 
-      nixd
-      nixfmt
-      nginx-language-server
-      gitlab-ci-ls
+    docker-buildx
+    docker-compose
+    lazydocker
 
-      docker-buildx
-      docker-compose
-      lazydocker
+    doctl
+    glab
+    kubectl
+    kubernetes-helm
+    k9s
+    ansible
+    opentofu
+    fluxcd
 
-      doctl
-      glab
-      kubectl
-      kubernetes-helm
-      k9s
-      ansible
-      opentofu
-      fluxcd
-    ]);
+    devenv
+    uv
+    pnpm
+
+    nil
+    nixfmt
+    nginx-language-server
+    gitlab-ci-ls
+  ];
 }
