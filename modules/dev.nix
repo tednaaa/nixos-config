@@ -74,7 +74,7 @@
     uv
     pnpm
 
-    nil
+    nixd
     nixfmt
     nginx-language-server
     gitlab-ci-ls
