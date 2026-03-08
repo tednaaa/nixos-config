@@ -38,3 +38,15 @@ sudo chown -R $USER:users ~/dotfiles
 nix flake update
 sudo nixos-rebuild boot --flake ~/nixos-config
 ```
+
+#### Manually garbage collect
+
+```fish
+sudo nix-collect-garbage -d
+```
+
+#### Check generations
+
+```fish
+sudo nixos-rebuild list-generations
+```
