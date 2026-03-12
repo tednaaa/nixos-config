@@ -18,12 +18,12 @@
   environment.systemPackages = with pkgs; [
     zed-editor
     neovim
-    cursor-cli
     claude-code-bin
+    # cursor-cli
     # code-cursor
     # opencode
 
-    godot
+    # godot
 
     zellij
     starship
