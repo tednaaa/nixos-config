@@ -10,8 +10,11 @@
 
   gtk = {
     enable = true;
-    colorScheme = "dark";
     theme = {
+      package = pkgs.orchis-theme;
+      name = "Orchis-Dark";
+    };
+    gtk4.theme = {
       package = pkgs.orchis-theme;
       name = "Orchis-Dark";
     };
