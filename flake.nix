@@ -28,6 +28,7 @@
           inherit inputs username hostname;
         };
         modules = [
+          { nixpkgs.overlays = import ./overlays; }
           ./hosts/nixos.nix
           home-manager.nixosModules.home-manager
           {
