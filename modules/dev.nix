@@ -80,5 +80,11 @@
     nixfmt
     nginx-language-server
     gitlab-ci-ls
+
+    # LSP servers for neovim
+    # basedpyright
+    # vtsls
+    # vue-language-server
+    # vscode-langservers-extracted
   ];
 }

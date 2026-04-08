@@ -29,6 +29,8 @@ let
   home_dots_symlinks = {
     "niri" = ".config/niri";
 
+    "nvim" = ".config/nvim";
+
     "fish/config.fish" = ".config/fish/config.fish";
     "fish/functions" = ".config/fish/functions";
   };
