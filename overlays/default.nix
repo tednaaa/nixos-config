@@ -1,3 +1,3 @@
 [
-  (import ./claude-code-bin.nix)
+  # (import ./claude-code-bin.nix)
 ]
