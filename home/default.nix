@@ -31,6 +31,9 @@ let
 
     "nvim" = ".config/nvim";
 
+    "claude/settings.json" = ".claude/settings.json";
+    "claude/CLAUDE.md" = ".claude/CLAUDE.md";
+
     "fish/config.fish" = ".config/fish/config.fish";
     "fish/functions" = ".config/fish/functions";
   };
