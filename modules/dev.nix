@@ -25,7 +25,7 @@
     # cursor-cli
     # code-cursor
 
-    # godot
+    godot
 
     zellij
     starship
