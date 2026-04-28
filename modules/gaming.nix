@@ -29,7 +29,10 @@
         version = "10.0.2";
       });
 
-      jdks = [ jdk21 ];
+      jdks = [
+        jdk17
+        jdk21
+      ];
       gamemodeSupport = true;
     })
   ];
