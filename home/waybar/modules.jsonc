@@ -1,0 +1,167 @@
+{
+	// "hyprland/workspaces": {
+	// 	"on-scroll-up": "hyprctl dispatch workspace r-1",
+	// 	"on-scroll-down": "hyprctl dispatch workspace r+1",
+	// 	"on-click": "activate",
+	// 	"active-only": false,
+	// 	"all-outputs": true,
+	// 	"format": "{}",
+	// 	"format-icons": {
+	// 		"urgent": "",
+	// 		"active": "",
+	// 		"default": "",
+	// 	},
+	// 	"persistent-workspaces": { "*": 3 },
+	// },
+
+	"tray": {
+		"icon-size": 21,
+		"spacing": 10,
+	},
+
+	"clock": {
+		"format": "{:%Y/%m/%d %H:%M}",
+		"tooltip-format": "<tt><small>{calendar}</small></tt>",
+		"calendar": {
+			"mode": "year",
+			"mode-mon-col": 3,
+			"weeks-pos": "right",
+			"on-scroll": 1,
+			"on-click-right": "mode",
+			"format": {
+				"months": "<span color='#ffead3'><b>{}</b></span>",
+				"days": "<span color='#ecc6d9'><b>{}</b></span>",
+				"weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+				"weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+				"today": "<span color='#ff6699'><b><u>{}</u></b></span>",
+			},
+		},
+		"actions": {
+			"on-click": "mode",
+			"on-scroll-up": "shift_up",
+			"on-scroll-down": "shift_down",
+		},
+	},
+
+	"niri/language": {
+		"format": "{short}",
+	},
+
+	"network": {
+		"format-icons": {
+			"disconnected": "󰅛",
+			"default": "",
+			"wifi": "",
+		},
+		"format": "{icon}",
+		"tooltip-format": "{ifname} {ipaddr}/{cidr}",
+		"tooltip-format-wifi": "{ifname} {ipaddr}/{cidr} {essid} ({signalStrength}%)",
+		"tooltip-format-disconnected": "YOU IN THE WOODS?",
+	},
+
+	"battery": {
+		"format": "{icon}",
+		"format-charging": "󱐋",
+		"format-plugged": "",
+		"format-icons": ["", "", "", "", ""],
+		"tooltip-format": "{capacity}% {power}W {timeTo}",
+		"states": {
+			"warning": 30,
+			"critical": 15,
+		},
+	},
+
+	"power-profiles-daemon": {
+		"format": "{icon}",
+		"tooltip-format": "Power profile: {profile}",
+		"tooltip": true,
+		"format-icons": {
+			"default": "",
+			"performance": "",
+			"balanced": "",
+			"power-saver": "",
+		},
+	},
+
+	"pulseaudio": {
+		"format": "{icon} {volume}%",
+		"format-muted": "",
+		"format-icons": {
+			"headphone": "",
+			"hands-free": "",
+			"headset": "",
+			"phone": "",
+			"portable": "",
+			"car": "",
+			"default": ["", "", ""],
+		},
+		"on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+		"on-click-right": "pavucontrol",
+		"on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
+		"on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
+	},
+
+	"pulseaudio#microphone": {
+		"format": "{format_source}",
+		"format-source": " {volume}%",
+		"format-source-muted": "",
+		"on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+		"on-click-right": "pavucontrol",
+		"on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -5%",
+		"on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +5%",
+	},
+
+	"bluetooth": {
+		"format-icons": {
+			"off": "󰂲",
+			"default": "󰂯",
+		},
+		"tooltip-format": "Bluetooth {status}",
+		"format": "{icon}",
+		"format-on": "{icon}",
+		"on-click": "alacritty --class bluetui -e bluetui",
+	},
+
+	"backlight": {
+		"format": "{icon} {percent}%",
+		"format-icons": [
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+		],
+		"scroll-step": 10,
+	},
+
+	"custom/notification": {
+		"tooltip": false,
+		"format": "{} {icon}",
+		"format-icons": {
+			"notification": "<span foreground='red'><sup></sup></span>",
+			"none": "",
+			"dnd-notification": "<span foreground='red'><sup></sup></span>",
+			"dnd-none": "",
+			"inhibited-notification": "<span foreground='red'><sup></sup></span>",
+			"inhibited-none": "",
+			"dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+			"dnd-inhibited-none": "",
+		},
+		"return-type": "json",
+		"exec-if": "which swaync-client",
+		"exec": "swaync-client -swb",
+		"on-click": "swaync-client -d -sw",
+		"on-click-right": "swaync-client -t -sw",
+		"escape": true,
+	},
+}

@@ -1,0 +1,15 @@
+@theme "catppuccin"
+
+configuration {
+	modi: "drun";
+	font: "JetBrainsMonoNL Nerd Font Propo 14";
+	show-icons: true;
+	icon-theme: "Oranchelo";
+	terminal: "alacritty";
+	drun-display-format: "{icon} {name}";
+	location: 0;
+	disable-history: true;
+	hide-scrollbar: true;
+	display-drun: " Apps";
+	sidebar-mode: false;
+}

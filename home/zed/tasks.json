@@ -1,0 +1,42 @@
+[
+  {
+    "label": "resto",
+    "command": "cd ~/projects/resto && resto",
+    "hide": "on_success",
+  },
+  {
+    "label": "lazygit",
+    "command": "lazygit",
+    "hide": "on_success",
+  },
+  {
+    "label": "lazydocker",
+    "command": "lazydocker",
+    "hide": "on_success",
+  },
+  {
+    "label": "k9s",
+    "command": "k9s",
+    "hide": "on_success",
+  },
+  {
+    "label": "cursor-agent",
+    "command": "cursor-agent",
+    "hide": "on_success",
+  },
+  {
+    "label": "fzf search",
+    "command": "~/.config/zed/scripts/fzf-search.fish",
+    "hide": "on_success",
+  },
+  {
+    "label": "Generate .editorconfig",
+    "command": "cp ~/.config/zed/templates/.editorconfig .editorconfig",
+    "show_summary": false,
+  },
+  {
+    "label": "Generate zed settings.json to lint and format only via eslint",
+    "command": "mkdir -p .zed && cp ~/.config/zed/templates/eslint-format-settings.json .zed/settings.json",
+    "show_summary": false,
+  },
+]

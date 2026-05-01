@@ -1,0 +1,90 @@
+[
+  {
+    "context": "ProjectPanel || CollabPanel || OutlinePanel || ChatPanel || VimControl || EmptyPane || SharedScreen || MarkdownPreview || KeyContextView",
+    "bindings": {
+      "ctrl-w": "pane::CloseActiveItem",
+      "ctrl-shift-w": "pane::CloseOtherItems",
+
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown",
+
+      "space g r": "editor::RestartLanguageServer",
+
+      "space g h": [
+        "task::Spawn",
+        { "task_name": "resto", "reveal_target": "center" },
+      ],
+      "space g g": [
+        "task::Spawn",
+        { "task_name": "lazygit", "reveal_target": "center" },
+      ],
+      "space g d": [
+        "task::Spawn",
+        { "task_name": "lazydocker", "reveal_target": "center" },
+      ],
+      "space g k": [
+        "task::Spawn",
+        { "task_name": "k9s", "reveal_target": "center" },
+      ],
+      "space g a": [
+        "task::Spawn",
+        { "task_name": "cursor-agent", "reveal_target": "center" },
+      ],
+
+      "space g /": [
+        "task::Spawn",
+        { "task_name": "fzf search", "reveal_target": "center" },
+      ],
+    },
+  },
+  {
+    "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
+    "bindings": {
+      "g h d": "editor::ToggleSelectedDiffHunks",
+      "g h r": "git::Restore",
+      "g h s": "git::ToggleStaged",
+
+      "g r": "editor::FindAllReferences",
+
+      "g b": "editor::ToggleBreakpoint",
+
+      "g b p": "pane::TogglePinTab",
+      "g b q": ["pane::CloseAllItems", { "close_pinned": false }],
+    },
+  },
+  {
+    "context": "Editor && (edit_prediction || edit_prediction_conflict)",
+    "bindings": {
+      "alt-l": null,
+      "tab": "editor::Tab",
+      "alt-a": "editor::AcceptEditPrediction",
+    },
+  },
+  {
+    "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
+    "bindings": {
+      "x": ["workspace::SendKeystrokes", "\" _ x"],
+
+      "alt-k": "editor::MoveLineUp",
+      "alt-j": "editor::MoveLineDown",
+    },
+  },
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      "shift-l": "pane::ActivateNextItem",
+      "shift-h": "pane::ActivatePreviousItem",
+
+      "space v": "pane::SplitRight",
+      "space s": "pane::SplitDown",
+    },
+  },
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      "z": "project_panel::CollapseAllEntries",
+    },
+  },
+]

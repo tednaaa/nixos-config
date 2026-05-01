@@ -11,7 +11,6 @@ mkdir -p /mnt/home/{your_user}
 cd /mnt/home/{your_user}
 
 git clone .../nixos-config
-git clone .../dotfiles
 
 cp /mnt/etc/nixos/hardware-configuration.nix ./nixos-config/hosts/hardware-configuration.nix
 
@@ -29,7 +28,6 @@ reboot
 
 ```fish
 sudo chown -R $USER:users ~/nixos-config
-sudo chown -R $USER:users ~/dotfiles
 ```
 
 #### Update system

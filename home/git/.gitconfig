@@ -1,0 +1,42 @@
+[core]
+	editor = zed --wait
+	ignorecase = false
+	pager = delta
+
+[init]
+	defaultBranch = main
+
+[diff]
+	colorMoved = default
+
+[delta]
+	navigate = true
+	line-numbers = true
+	tabs = 2
+
+[interactive]
+	diffFilter = delta --color-only
+
+[merge]
+	conflictStyle = zdiff3
+
+[rerere]
+	enabled = true
+
+[fetch]
+	prune = true
+
+[pull]
+	default = current
+	rebase = false
+
+[push]
+	default = current
+	autoSetupRemote = true
+
+[user]
+name = Andranik
+email = tednaaa@gmail.com
+
+[includeIf "gitdir:~/work/"]
+  path = ~/work/.gitconfig

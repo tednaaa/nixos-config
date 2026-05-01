@@ -1,0 +1,7 @@
+[general]
+fullscreen = true
+initial-tool = "crop"
+annotation-size-factor = 0.3
+
+copy-command = "wl-copy"
+actions-on-enter = ["save-to-clipboard", "exit"]

@@ -1,0 +1,5 @@
+customCommands:
+  images:
+    - name: Run in 80 port
+      command: docker run -p 80:80 {{ .Image.ID }}
+      serviceNames: []

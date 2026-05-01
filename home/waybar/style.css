@@ -1,0 +1,72 @@
+* {
+	border: none;
+	border-radius: 0;
+	font-family: "JetBrainsMonoNL Nerd Font Propo";
+	font-weight: normal;
+	font-size: 16px;
+	min-height: 16px;
+}
+
+window#waybar {
+	background: transparent;
+	color: #cdd6f4;
+}
+
+tooltip {
+	background: #1e1e2e;
+	color: #cdd6f4;
+}
+
+#custom-notification,
+#battery,
+#backlight,
+#bluetooth,
+#network,
+#power-profiles-daemon,
+#pulseaudio,
+#pulseaudio.microphone,
+#language,
+#clock,
+#tray,
+#window,
+#workspaces {
+	background: #1a1b26;
+	padding: 0px 12px;
+	border: #1e1e2e 2px solid;
+	border-radius: 8px;
+	margin: 5px;
+	margin-bottom: 0;
+	min-width: 20px;
+}
+
+#workspaces {
+	padding: 0;
+}
+#workspaces button {
+	padding: 0 10px;
+	border-radius: 5px;
+}
+
+#workspaces button.active,
+#workspaces button:hover {
+	color: orange;
+	background-color: #1e1e2e;
+}
+
+#battery.critical,
+#temperature.critical {
+	color: #e92d4d;
+}
+
+#battery.warning,
+#temperature.warning {
+	color: #fc4c02;
+}
+
+#pulseaudio {
+	color: #89b4fa;
+}
+
+#pulseaudio.microphone {
+	color: #cba6f7;
+}

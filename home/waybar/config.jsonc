@@ -1,0 +1,25 @@
+{
+	"layer": "top",
+	"position": "top",
+	"spacing": 0,
+	"height": 35,
+
+	"include": ["~/.config/waybar/modules.jsonc"],
+
+	"modules-left": [
+		"backlight",
+		"battery",
+		"network",
+		"power-profiles-daemon",
+		"niri/language",
+		"tray",
+	],
+	// "modules-center": ["hyprland/workspaces"],
+	"modules-right": [
+		"pulseaudio",
+		"pulseaudio#microphone",
+		"bluetooth",
+		"custom/notification",
+		"clock",
+	],
+}

@@ -5,18 +5,20 @@
   ...
 }:
 let
-  dotfiles = "${config.home.homeDirectory}/dotfiles/.configs";
   home_dots = "${config.home.homeDirectory}/nixos-config/home";
 
-  external_symlinks = {
+  home_dots_symlinks = {
+    "niri" = ".config/niri";
+    "wallpapers" = ".config/wallpapers";
+
     "waybar" = ".config/waybar";
     "rofi" = ".config/rofi";
     "yazi" = ".config/yazi";
+    "zellij" = ".config/zellij";
+
     "satty" = ".config/satty";
 
-    "wallpapers" = ".config/wallpapers";
-
-    "zellij" = ".config/zellij";
+    "nvim" = ".config/nvim";
     "zed" = ".config/zed";
 
     "lazygit" = ".config/lazygit";
@@ -24,12 +26,6 @@ let
 
     "git/.gitconfig" = ".gitconfig";
     "npm/.npmrc" = ".npmrc";
-  };
-
-  home_dots_symlinks = {
-    "niri" = ".config/niri";
-
-    "nvim" = ".config/nvim";
 
     "claude/settings.json" = ".claude/settings.json";
     "claude/CLAUDE.md" = ".claude/CLAUDE.md";
@@ -38,17 +34,12 @@ let
     "fish/functions" = ".config/fish/functions";
   };
 
-  mkExternalLinks = lib.mapAttrs' (src: target: {
-    name = target;
-    value.source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/${src}";
-  }) external_symlinks;
-
   mkHomeDotsLinks = lib.mapAttrs' (src: target: {
     name = target;
     value.source = config.lib.file.mkOutOfStoreSymlink "${home_dots}/${src}";
   }) home_dots_symlinks;
 
-  allLinks = mkExternalLinks // mkHomeDotsLinks;
+  allLinks = mkHomeDotsLinks;
 in
 {
   imports = [
