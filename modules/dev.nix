@@ -19,7 +19,7 @@
     zed-editor
     neovim
 
-    claude-code-bin
+    claude-code
     sox
     # opencode
     # cursor-cli
