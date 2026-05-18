@@ -1,4 +1,5 @@
 {
+  "cli_default_open_behavior": "new_window",
   "outline_panel": { "dock": "left" },
   "collaboration_panel": { "dock": "left" },
   "git_panel": { "dock": "left" },
@@ -16,7 +17,7 @@
   "theme": {
     "mode": "system",
     "light": "One Light",
-    "dark": "Ayu Dark",
+    "dark": "Zedokai Darker (Filter Spectrum)",
   },
 
   "buffer_font_family": "JetBrainsMonoNL Nerd Font Propo",
