@@ -46,7 +46,6 @@ in
     ./theme.nix
     ./alacritty.nix
     ./btop.nix
-    ./direnv.nix
   ];
 
   home.username = username;

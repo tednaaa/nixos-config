@@ -10,6 +10,6 @@ alias k="kubectl"
 alias zed="zeditor"
 set -gx EDITOR "zeditor --wait"
 
-direnv hook fish | source
+devenv hook fish | source
 starship init fish | source
 zoxide init fish | source
