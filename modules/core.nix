@@ -31,18 +31,10 @@
     pulse.enable = true;
   };
 
-  services.xserver.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia.modesetting.enable = true;
   hardware.graphics.enable = true;
-  hardware.nvidia.open = false;
-
-  nix.gc = {
-    automatic = true;
-    dates = "daily";
-    options = "--delete-older-than 7d";
-    persistent = true;
-  };
+  hardware.nvidia.open = true;
 
   nixpkgs.config.allowUnfree = true;
 }
