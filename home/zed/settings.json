@@ -15,9 +15,9 @@
     "dark": "Material Icon Theme",
   },
   "theme": {
-    "mode": "system",
+    "mode": "dark",
     "light": "One Light",
-    "dark": "Zedokai Darker (Filter Spectrum)",
+    "dark": "Kanagawa",
   },
 
   "buffer_font_family": "JetBrainsMonoNL Nerd Font Propo",
