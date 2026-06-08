@@ -75,6 +75,7 @@
     devenv
     uv
     pnpm
+    nodejs
 
     nixd
     nixfmt
