@@ -13,7 +13,11 @@
   console.useXkbConfig = lib.mkForce true;
 
   services = {
-    displayManager.gdm.enable = true;
+    displayManager = {
+      gdm.enable = true;
+      defaultSession = "niri";
+    };
+
     gnome.gnome-keyring.enable = true;
     power-profiles-daemon.enable = true;
     gvfs.enable = true;
