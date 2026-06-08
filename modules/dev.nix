@@ -20,12 +20,12 @@
     neovim
 
     claude-code
-    sox
+    # sox
     # opencode
     # cursor-cli
     # code-cursor
 
-    godot
+    # godot
 
     zellij
     starship
