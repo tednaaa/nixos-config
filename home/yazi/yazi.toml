@@ -1,16 +1,16 @@
 [mgr]
-show_hidden = true
+show_hidden = false
 
 [opener]
 tabiew = [
-	{ run = 'tw "$@"', block = true, desc = "Open with tabiew" },
+	{ run = 'tw "$@"', block = true, desc = "tabiew" },
 ]
 
 [open]
 prepend_rules = [
-	{ name = "*.csv", use = "tabiew" },
-	{ name = "*.xlsx", use = "tabiew" },
-	{ name = "*.xls", use = "tabiew" },
+	{ url = "*.csv", use = "tabiew" },
+	{ url = "*.xlsx", use = "tabiew" },
+	{ url = "*.xls", use = "tabiew" },
 	{ mime = "text/csv", use = "tabiew" },
 	{ mime = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", use = "tabiew" },
 ]
