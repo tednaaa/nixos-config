@@ -1,0 +1,51 @@
+theme = "kanagawa"
+
+[editor]
+line-number = "relative"          # zed: relative_line_numbers = "enabled"
+scrolloff = 10                    # zed: vertical_scroll_margin = 10
+cursorline = true
+mouse = true
+bufferline = "multiple"           # show open buffers as tabs (zed: tabs)
+color-modes = true
+true-color = true
+auto-format = true                # zed: format_on_save = "on" (also per-language below)
+completion-trigger-len = 1
+idle-timeout = 100
+
+# zed: vim.use_system_clipboard = "always".
+# Helix uses the OS clipboard for the +/* registers; this makes the
+# unnamed yank/paste use the system clipboard everywhere.
+default-yank-register = "+"
+
+[editor.cursor-shape]
+normal = "block"
+insert = "bar"
+select = "underline"
+
+[editor.file-picker]
+hidden = false                    # show hidden files in the picker
+
+[editor.indent-guides]
+render = true                     # zed: indent_guides.enabled = true
+character = "╎"
+skip-levels = 1
+
+[editor.statusline]
+left = ["mode", "spinner", "version-control"]
+center = ["file-name"]
+right = ["diagnostics", "selections", "position", "file-type"]
+
+[editor.lsp]
+display-messages = true
+display-inlay-hints = false
+
+[editor.search]
+smart-case = true                 # zed: vim.use_smartcase_find = true
+
+# zed: show_whitespaces = "selection" has no Helix equivalent;
+# Helix only does all/none. Left at "none"; flip to "all" if you want them.
+[editor.whitespace]
+render = "none"
+
+[editor.soft-wrap]
+enable = false

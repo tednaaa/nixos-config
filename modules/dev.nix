@@ -17,6 +17,7 @@
 
   environment.systemPackages = with pkgs; [
     zed-editor
+    helix
     neovim
 
     claude-code
@@ -77,15 +78,17 @@
     pnpm
     nodejs
 
+    # Language servers + formatters
     nixd
     nixfmt
     nginx-language-server
     gitlab-ci-ls
 
-    # LSP servers for neovim
-    # basedpyright
-    # vtsls
-    # vue-language-server
-    # vscode-langservers-extracted
+    basedpyright # python LSP
+    black # python formatter
+    typescript-language-server # typescript/javascript LSP (helix default)
+    vue-language-server # vue LSP (provides `vue-language-server`)
+    vscode-langservers-extracted # provides vscode-eslint-language-server, json/css/html
+    yaml-language-server # yaml LSP
   ];
 }

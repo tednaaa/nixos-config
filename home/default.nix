@@ -18,8 +18,9 @@ let
 
     "satty" = ".config/satty";
 
-    "nvim" = ".config/nvim";
     "zed" = ".config/zed";
+    "helix" = ".config/helix";
+    # "nvim" = ".config/nvim";
 
     "lazygit" = ".config/lazygit";
     "lazydocker" = ".config/lazydocker";
