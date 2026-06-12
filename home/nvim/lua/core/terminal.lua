@@ -1,0 +1,11 @@
+local term = require("util.term")
+
+term.map("<leader>gg", "lazygit", "lazygit", function()
+	pcall(function()
+		require("gitsigns").refresh()
+	end)
+end)
+term.map("<leader>gd", "lazydocker", "lazydocker")
+term.map("<leader>gk", "k9s", "k9s")
+term.map("<leader>gh", "cd ~/projects/resto && resto", "resto")
+term.map("<leader>ga", "claude", "claude code")
