@@ -4,5 +4,7 @@ git:
   pagers:
     - colorArg: always
       pager: delta --dark --paging=never
-os:
-  editPreset: nvim-remote
+
+# NOTE: use only when $EDITOR is nvim
+# os:
+#   editPreset: nvim-remote

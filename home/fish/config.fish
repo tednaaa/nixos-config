@@ -8,8 +8,8 @@ alias ls="eza --all --icons -l --no-user -o"
 alias k="kubectl"
 alias zed="zeditor"
 
-set -gx EDITOR nvim
-# set -gx EDITOR "zeditor --wait"
+set -gx EDITOR "zeditor --wait"
+# set -gx EDITOR nvim
 
 devenv hook fish | source
 starship init fish | source
