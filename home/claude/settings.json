@@ -13,5 +13,6 @@
   },
   "effortLevel": "high",
   "editorMode": "vim",
-  "autoCompactEnabled": false
+  "autoCompactEnabled": false,
+  "skipWorkflowUsageWarning": true
 }
