@@ -20,7 +20,7 @@ let
 
     "zed" = ".config/zed";
     "helix" = ".config/helix";
-    # "nvim" = ".config/nvim";
+    "nvim" = ".config/nvim";
 
     "lazygit" = ".config/lazygit";
     "lazydocker" = ".config/lazydocker";
