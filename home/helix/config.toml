@@ -1,20 +1,16 @@
 theme = "kanagawa"
 
 [editor]
-line-number = "relative"          # zed: relative_line_numbers = "enabled"
-scrolloff = 10                    # zed: vertical_scroll_margin = 10
+line-number = "relative"
+scrolloff = 10
 cursorline = true
 mouse = true
-bufferline = "multiple"           # show open buffers as tabs (zed: tabs)
-color-modes = true
 true-color = true
-auto-format = true                # zed: format_on_save = "on" (also per-language below)
+color-modes = true
+bufferline = "multiple"
+auto-format = true
 completion-trigger-len = 1
-idle-timeout = 100
-
-# zed: vim.use_system_clipboard = "always".
-# Helix uses the OS clipboard for the +/* registers; this makes the
-# unnamed yank/paste use the system clipboard everywhere.
+idle-timeout = 250
 default-yank-register = "+"
 
 [editor.cursor-shape]
@@ -23,10 +19,10 @@ insert = "bar"
 select = "underline"
 
 [editor.file-picker]
-hidden = false                    # show hidden files in the picker
+hidden = false
 
 [editor.indent-guides]
-render = true                     # zed: indent_guides.enabled = true
+render = true
 character = "╎"
 skip-levels = 1
 
@@ -40,12 +36,76 @@ display-messages = true
 display-inlay-hints = false
 
 [editor.search]
-smart-case = true                 # zed: vim.use_smartcase_find = true
+smart-case = true
 
-# zed: show_whitespaces = "selection" has no Helix equivalent;
-# Helix only does all/none. Left at "none"; flip to "all" if you want them.
-[editor.whitespace]
-render = "none"
+[editor.whitespace.render]
+tab = "all"
+nbsp = "all"
+nnbsp = "all"
+space = "none"
+newline = "none"
+
+[editor.whitespace.characters]
+tab = "│"
+nbsp = "␣"
 
 [editor.soft-wrap]
 enable = false
+
+[keys.normal]
+C-s = ":write"
+C-h = "jump_view_left"
+C-j = "jump_view_down"
+C-k = "jump_view_up"
+C-l = "jump_view_right"
+H = "goto_previous_buffer"
+L = "goto_next_buffer"
+
+[keys.normal."]"]
+h = "goto_next_change"
+
+[keys.normal."["]
+h = "goto_prev_change"
+
+[keys.normal.space]
+space = "file_picker"
+"/" = "global_search"
+"," = "buffer_picker"
+v = ":vsplit"
+s = ":hsplit"
+
+[keys.normal.space.f]
+f = "file_picker"
+g = "global_search"
+b = "buffer_picker"
+s = "symbol_picker"
+S = "workspace_symbol_picker"
+d = "diagnostics_picker"
+D = "workspace_diagnostics_picker"
+r = "last_picker"
+
+[keys.normal.space.c]
+r = "rename_symbol"
+a = "code_action"
+s = "symbol_picker"
+S = "workspace_symbol_picker"
+d = "diagnostics_picker"
+f = ":format"
+i = ":toggle lsp.display-inlay-hints"
+
+[keys.normal.space.b]
+b = "buffer_picker"
+d = ":buffer-close"
+o = ":buffer-close-others"
+
+[keys.normal.space.g]
+g = ":sh zellij run -fc -- lazygit"
+d = ":sh zellij run -fc -- lazydocker"
+k = ":sh zellij run -fc -- k9s"
+h = ":sh zellij run -fc -- bash -lc 'cd ~/projects/resto && resto'"
+a = ":sh zellij run -fc -- claude"
+r = ":lsp-restart"
+"/" = "global_search"
+
+[keys.insert]
+C-s = [":write", "normal_mode"]
