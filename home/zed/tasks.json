@@ -20,16 +20,6 @@
     "hide": "on_success",
   },
   {
-    "label": "cursor-agent",
-    "command": "cursor-agent",
-    "hide": "on_success",
-  },
-  {
-    "label": "fzf search",
-    "command": "~/.config/zed/scripts/fzf-search.fish",
-    "hide": "on_success",
-  },
-  {
     "label": "Generate .editorconfig",
     "command": "cp ~/.config/zed/templates/.editorconfig .editorconfig",
     "show_summary": false,
