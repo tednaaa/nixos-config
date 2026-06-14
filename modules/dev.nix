@@ -78,17 +78,14 @@
     pnpm
     nodejs
 
-    # Language servers + formatters
+    # LSP
     nixd
-    nixfmt
     nginx-language-server
+    basedpyright
     gitlab-ci-ls
 
-    basedpyright # python LSP
-    black # python formatter
-    typescript-language-server # typescript/javascript LSP (helix default)
-    vue-language-server # vue LSP (provides `vue-language-server`)
-    vscode-langservers-extracted # provides vscode-eslint-language-server, json/css/html
-    yaml-language-server # yaml LSP
+    # formatters
+    nixfmt
+    black
   ];
 }
