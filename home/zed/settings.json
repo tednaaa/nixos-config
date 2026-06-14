@@ -17,7 +17,7 @@
   "theme": {
     "mode": "dark",
     "light": "One Light",
-    "dark": "Kanagawa",
+    "dark": "Gruvbox Dark Hard",
   },
 
   "buffer_font_family": "JetBrainsMonoNL Nerd Font Propo",
@@ -127,26 +127,24 @@
   },
 
   "auto_install_extensions": {
-    "intellij-newui-theme": true,
-    "tokyo-night": true,
-    "one-dark-pro": true,
-    "github-theme": true,
-
+    "cargo-tom": true,
     "catppuccin": true,
     "catppuccin-icons": true,
-
-    "basher": true,
-    "cargo-tom": true,
     "dockerfile": true,
     "emmet": true,
     "env": true,
     "fish": true,
     "git-firefly": true,
+    "github-theme": true,
     "html": true,
+    "intellij-newui-theme": true,
     "make": true,
+    "material-icon-theme": true,
     "nginx": true,
-    "snippets": true,
+    "nix": true,
+    "one-dark-pro": true,
     "sql": true,
+    "tokyo-night": true,
     "toml": true,
     "vue": true,
     "wakatime": true,
