@@ -5,6 +5,23 @@ git:
     - colorArg: always
       pager: delta --dark --paging=never
 
+customCommands:
+  - key: "X"
+    context: "commits"
+    description: "Copy or export commit diff"
+    prompts:
+      - type: "menu"
+        title: "Commit diff ({{.SelectedLocalCommit.Hash}})"
+        options:
+          - name: "Copy to clipboard"
+            description: "git show (no author) | wl-copy"
+            value: "copy"
+          - name: "Export to file"
+            description: "write <hash>.diff in repo root"
+            value: "file"
+    command: '{{ if eq (index .PromptResponses 0) "copy" }}git show --format="%h %s%n%n%b" {{.SelectedLocalCommit.Hash}} | wl-copy{{ else }}git show --format="%h %s%n%n%b" {{.SelectedLocalCommit.Hash}} > {{.SelectedLocalCommit.Hash}}.diff{{ end }}'
+    loadingText: "Working on commit diff..."
+
 # NOTE: use only when $EDITOR is nvim
 # os:
 #   editPreset: nvim-remote
