@@ -1,9 +1,4 @@
 {
-  "editorMode": "vim",
-  "effortLevel": "xhigh",
-  "skipWorkflowUsageWarning": true,
-  "autoCompactEnabled": false,
-
   "statusLine": {
     "type": "command",
     "command": "input=$(cat); remaining=$(echo \"$input\" | jq -r '.context_window.remaining_percentage // empty'); if [ -n \"$remaining\" ]; then remaining_int=${remaining%.*}; if [ \"$remaining_int\" -gt 75 ]; then color=\"\\033[32m\"; elif [ \"$remaining_int\" -gt 50 ]; then color=\"\\033[33m\"; elif [ \"$remaining_int\" -gt 25 ]; then color=\"\\033[38;5;208m\"; else color=\"\\033[31m\"; fi; printf \"${color}Context: ${remaining_int}%% remaining\\033[0m\"; else printf \"Context: N/A\"; fi"
@@ -15,5 +10,10 @@
     "feature-dev@claude-plugins-official": true,
     "claude-md-management@claude-plugins-official": true,
     "figma@claude-plugins-official": true
-  }
+  },
+  "effortLevel": "xhigh",
+  "skipWorkflowUsageWarning": true,
+  "editorMode": "vim",
+  "autoCompactEnabled": false,
+  "tui": "fullscreen"
 }
