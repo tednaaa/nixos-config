@@ -38,6 +38,7 @@
     yazi
     ueberzugpp
     resvg
+    dust
 
     fzf
     skim
