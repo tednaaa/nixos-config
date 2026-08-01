@@ -33,6 +33,7 @@ let
 
     "fish/config.fish" = ".config/fish/config.fish";
     "fish/functions" = ".config/fish/functions";
+    "fish/conf.d" = ".config/fish/conf.d";
   };
 
   mkHomeDotsLinks = lib.mapAttrs' (src: target: {
