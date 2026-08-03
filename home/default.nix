@@ -27,6 +27,8 @@ let
     "lazygit" = ".config/lazygit";
     "lazydocker" = ".config/lazydocker";
 
+    "fd/ignore" = ".config/fd/ignore";
+
     "git/.gitconfig" = ".gitconfig";
     "npm/.npmrc" = ".npmrc";
 

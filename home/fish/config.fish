@@ -5,6 +5,7 @@ set -gx EDITOR "zeditor --wait"
 
 if status is-interactive
 	alias ls="eza --all --icons -l --no-user -o"
+	alias fd="fd --hidden"
 	alias k="kubectl"
 	alias zed="zeditor"
 
