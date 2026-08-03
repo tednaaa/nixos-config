@@ -1,5 +1,10 @@
 gui:
   showFileTree: false
+
+os:
+  editPreset: zed
+  # editPreset: nvim-remote
+
 git:
   pagers:
     - colorArg: always
@@ -21,7 +26,3 @@ customCommands:
             value: "file"
     command: '{{ if eq (index .PromptResponses 0) "copy" }}git show --format="%h %s%n%n%b" {{.SelectedLocalCommit.Hash}} | wl-copy{{ else }}git show --format="%h %s%n%n%b" {{.SelectedLocalCommit.Hash}} > {{.SelectedLocalCommit.Hash}}.diff{{ end }}'
     loadingText: "Working on commit diff..."
-
-# NOTE: use only when $EDITOR is nvim
-# os:
-#   editPreset: nvim-remote

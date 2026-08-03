@@ -1,5 +1,5 @@
 [core]
-	editor = zed --wait
+	editor = zeditor --wait
 	ignorecase = false
 	pager = delta
 
