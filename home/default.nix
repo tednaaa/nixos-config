@@ -17,6 +17,7 @@ let
     "zellij" = ".config/zellij";
 
     "satty" = ".config/satty";
+    "clipse/config.json" = ".config/clipse/config.json";
 
     "zed" = ".config/zed";
     "helix" = ".config/helix";
