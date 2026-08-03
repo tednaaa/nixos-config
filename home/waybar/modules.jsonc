@@ -119,7 +119,7 @@
 		"tooltip-format": "Bluetooth {status}",
 		"format": "{icon}",
 		"format-on": "{icon}",
-		"on-click": "alacritty --class bluetui -e bluetui",
+		"on-click": "footclient --no-wait --app-id=bluetui bluetui",
 	},
 
 	"backlight": {

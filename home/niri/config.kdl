@@ -85,7 +85,7 @@ window-rule {
 	open-on-workspace "editor"
 }
 window-rule {
-	match app-id="Alacritty"
+	match app-id="foot"
 	open-on-workspace "terminal"
 }
 
@@ -121,13 +121,13 @@ window-rule {
 binds {
 	Mod+Shift+Slash { show-hotkey-overlay; }
 
-	Mod+Return hotkey-overlay-title="Open terminal" { spawn "alacritty"; }
+	Mod+Return hotkey-overlay-title="Open terminal" { spawn "footclient"; }
 	Mod+Space hotkey-overlay-title="Open rofi" { spawn-sh "rofi -show drun"; }
 	Super+Alt+L hotkey-overlay-title="Lock the Screen" { spawn "swaylock"; }
 	Print hotkey-overlay-title="Screenshot" { spawn "fish" "-c" "screenshot"; }
 
-	Mod+D hotkey-overlay-title="Open clipboard history" { spawn-sh "alacritty --class clipse -e clipse"; }
-	Mod+M hotkey-overlay-title="Open yazi" { spawn-sh "alacritty --class yazi -e yazi"; }
+	Mod+D hotkey-overlay-title="Open clipboard history" { spawn "footclient" "--no-wait" "--app-id=clipse" "clipse"; }
+	Mod+M hotkey-overlay-title="Open yazi" { spawn "footclient" "--no-wait" "--app-id=yazi" "yazi"; }
 	Mod+N hotkey-overlay-title="Open file manager" { spawn "nautilus"; }
 
 	XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }

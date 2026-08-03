@@ -5,7 +5,7 @@ configuration {
 	font: "JetBrainsMonoNL Nerd Font Propo 14";
 	show-icons: true;
 	icon-theme: "Oranchelo";
-	terminal: "alacritty";
+	terminal: "footclient";
 	drun-display-format: "{icon} {name}";
 	location: 0;
 	disable-history: true;

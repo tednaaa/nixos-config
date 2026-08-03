@@ -31,7 +31,7 @@
     "yankFilter": "ctrl+s"
   },
   "imageDisplay": {
-    "type": "basic",
+    "type": "sixel",
     "scaleX": 9,
     "scaleY": 9,
     "heightCut": 2

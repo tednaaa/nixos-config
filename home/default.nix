@@ -15,6 +15,7 @@ let
     "rofi" = ".config/rofi";
     "yazi" = ".config/yazi";
     "zellij" = ".config/zellij";
+    "foot/foot.ini" = ".config/foot/foot.ini";
 
     "satty" = ".config/satty";
     "clipse/config.json" = ".config/clipse/config.json";
@@ -47,7 +48,7 @@ in
 {
   imports = [
     ./theme.nix
-    ./alacritty.nix
+    ./foot.nix
     ./btop.nix
   ];
 
