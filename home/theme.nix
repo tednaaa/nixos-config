@@ -12,12 +12,12 @@
   gtk = {
     enable = true;
     theme = {
-      package = pkgs.orchis-theme;
-      name = "Orchis-Dark";
+      package = pkgs.colloid-gtk-theme;
+      name = "Colloid-Dark";
     };
     gtk4.theme = {
-      package = pkgs.orchis-theme;
-      name = "Orchis-Dark";
+      package = pkgs.colloid-gtk-theme;
+      name = "Colloid-Dark";
     };
     iconTheme = {
       package = pkgs.papirus-icon-theme;
@@ -32,7 +32,7 @@
   dconf.settings = {
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
-      gtk-theme = "Orchis-Dark";
+      gtk-theme = "Colloid-Dark";
       icon-theme = "Papirus-Dark";
       cursor-theme = "macOS";
     };
