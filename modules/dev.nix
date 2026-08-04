@@ -21,8 +21,7 @@
     neovim
 
     claude-code
-    # sox
-    # opencode
+    opencode
     # cursor-cli
     # code-cursor
 
