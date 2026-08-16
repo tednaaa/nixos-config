@@ -1,20 +1,27 @@
 {
   config,
   pkgs,
+  inputs,
   username,
   ...
 }:
 {
-  nix.settings.trusted-users = [
-    "root"
-    username
-  ];
-
   system.stateVersion = "26.05";
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
+
+  nix.settings = {
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+
+    trusted-users = [
+      "root"
+      username
+    ];
+  };
+
+  nix.registry.nixpkgs.flake = inputs.nixpkgs;
+  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
   boot.kernelPackages = pkgs.linuxPackages;
   boot.loader = {
