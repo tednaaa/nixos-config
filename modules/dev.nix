@@ -1,12 +1,5 @@
 { pkgs, ... }:
 {
-  # run dynamically linked executables, need for zed
-  programs.nix-ld = {
-    enable = true;
-    # libraries = pkgs.steam-run.args.multiPkgs pkgs;
-    libraries = [ ];
-  };
-
   virtualisation.docker = {
     enable = true;
     rootless = {
