@@ -10,7 +10,6 @@
 
   environment.systemPackages = with pkgs; [
     zed-editor
-    helix
     neovim
 
     claude-code
@@ -28,7 +27,6 @@
     dbgate
     tabiew
     yazi
-    ueberzugpp
     resvg
     dust
 
@@ -45,13 +43,12 @@
     lazygit
     (callPackage ../packages/resto.nix { })
 
-    # TODO: not working, glibc version is not compatible
-    # netcat-openbsd
+    netcat-openbsd
     openssh
     rsync
     bind
     cmake
-    zrok
+    # zrok
 
     docker-buildx
     docker-compose

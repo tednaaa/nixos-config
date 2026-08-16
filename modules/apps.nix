@@ -20,7 +20,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    obsidian
+    # obsidian
 
     obs-studio
     telegram-desktop
