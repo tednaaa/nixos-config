@@ -50,6 +50,18 @@
     cmake
     # zrok
 
+    nmap
+    sqlmap
+    seclists
+    ffuf
+    # feroxbuster
+    nuclei
+    wireshark
+    thc-hydra
+    metasploit
+    httpx
+    burpsuite
+
     docker-buildx
     docker-compose
     lazydocker
