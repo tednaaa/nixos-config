@@ -42,18 +42,6 @@
     cmake
     # zrok
 
-    nmap
-    sqlmap
-    seclists
-    ffuf
-    # feroxbuster
-    nuclei
-    wireshark
-    thc-hydra
-    metasploit
-    httpx
-    burpsuite
-
     doctl
     glab
     kubectl

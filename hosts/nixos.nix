@@ -8,6 +8,7 @@
     ../modules/media.nix
     ../modules/fonts.nix
     ../modules/dev.nix
+    ../modules/pentest.nix
     ../modules/docker.nix
     ../modules/apps.nix
     ../modules/gaming.nix
