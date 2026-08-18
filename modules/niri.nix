@@ -42,7 +42,7 @@
 
   environment.systemPackages = with pkgs; [
     xwayland-satellite
-    rofi
+    fuzzel
     waybar
 
     swaylock

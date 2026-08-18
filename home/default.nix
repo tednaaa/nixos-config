@@ -12,7 +12,7 @@ let
     "wallpapers" = ".config/wallpapers";
 
     "waybar" = ".config/waybar";
-    "rofi" = ".config/rofi";
+    "fuzzel/fuzzel.ini" = ".config/fuzzel/fuzzel.ini";
     "yazi" = ".config/yazi";
     "zellij" = ".config/zellij";
     "foot/foot.ini" = ".config/foot/foot.ini";

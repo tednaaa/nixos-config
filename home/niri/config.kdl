@@ -117,12 +117,23 @@ window-rule {
 	block-out-from "screencast"
 }
 
+layer-rule {
+	match namespace="^launcher$"
+	geometry-corner-radius 12
+	shadow {
+		on
+		softness 30
+		spread 4
+		offset x=0 y=6
+		color "#00000080"
+	}
+}
 
 binds {
 	Mod+Shift+Slash { show-hotkey-overlay; }
 
 	Mod+Return hotkey-overlay-title="Open terminal" { spawn "footclient"; }
-	Mod+Space hotkey-overlay-title="Open rofi" { spawn-sh "rofi -show drun"; }
+	Mod+Space hotkey-overlay-title="Open fuzzel" { spawn "fuzzel"; }
 	Super+Alt+L hotkey-overlay-title="Lock the Screen" { spawn "swaylock"; }
 	Print hotkey-overlay-title="Screenshot" { spawn "fish" "-c" "screenshot"; }
 
