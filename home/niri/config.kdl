@@ -49,6 +49,13 @@ layout {
 		// inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
 	}
 
+	border {
+		off
+		width 2
+		active-color "#7aa2f7"
+		inactive-color "#7aa2f7"
+	}
+
 	struts { top 3; }
 }
 
@@ -117,16 +124,16 @@ window-rule {
 	block-out-from "screencast"
 }
 
+window-rule {
+	match app-id="clipse"
+	match app-id="bluetui"
+	match app-id="yazi"
+	border { on; }
+}
+
 layer-rule {
 	match namespace="^launcher$"
 	geometry-corner-radius 12
-	shadow {
-		on
-		softness 30
-		spread 4
-		offset x=0 y=6
-		color "#00000080"
-	}
 }
 
 binds {
