@@ -49,7 +49,7 @@
     swaybg
     swaynotificationcenter
 
-    pulseaudio
+    pulseaudio # for pactl, used by waybar
     pavucontrol
     brightnessctl
     libnotify

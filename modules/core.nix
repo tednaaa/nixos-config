@@ -33,16 +33,6 @@
   time.timeZone = "Asia/Yerevan";
   i18n.defaultLocale = "en_US.UTF-8";
 
-  hardware.bluetooth.enable = true;
-
-  services.pulseaudio.enable = false;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
-
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia.modesetting.enable = true;
   hardware.graphics.enable = true;
