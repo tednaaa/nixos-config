@@ -1,13 +1,5 @@
 { pkgs, ... }:
 {
-  virtualisation.docker = {
-    enable = true;
-    rootless = {
-      enable = true;
-      setSocketVariable = true;
-    };
-  };
-
   environment.systemPackages = with pkgs; [
     zed-editor
     neovim
@@ -61,10 +53,6 @@
     metasploit
     httpx
     burpsuite
-
-    docker-buildx
-    docker-compose
-    lazydocker
 
     doctl
     glab

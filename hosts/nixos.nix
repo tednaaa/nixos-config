@@ -7,6 +7,7 @@
     ../modules/niri.nix
     ../modules/fonts.nix
     ../modules/dev.nix
+    ../modules/docker.nix
     ../modules/apps.nix
     ../modules/gaming.nix
 
