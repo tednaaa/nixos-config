@@ -12,13 +12,6 @@
     libraries = [ ];
   };
 
-  # right-click game → Properties → Launch Options - do that for all games
-  # `gamemoderun %command%`   |or|   `SteamDeck=1 gamemoderun %command%`
-  programs = {
-    gamemode.enable = true;
-    steam.enable = true;
-  };
-
   environment.systemPackages = with pkgs; [
     # obsidian
 
@@ -27,7 +20,5 @@
 
     firefox
     google-chrome
-
-    # (callPackage ../packages/elyprismlauncher.nix { })
   ];
 }
