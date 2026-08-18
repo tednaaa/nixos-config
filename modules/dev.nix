@@ -3,24 +3,21 @@
   environment.systemPackages = with pkgs; [
     zed-editor
     neovim
+    # godot
 
     claude-code
     opencode
-    # cursor-cli
-    # code-cursor
-
-    # godot
 
     zellij
     starship
     fastfetch
-    postgresql_18
-    dbeaver-bin
-    dbgate
     tabiew
     yazi
     resvg
-    dust
+
+    postgresql_18
+    dbeaver-bin
+    dbgate
 
     fzf
     skim
@@ -29,6 +26,7 @@
     zoxide
     eza
     fd
+    dust
     bat
     git
     delta
