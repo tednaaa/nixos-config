@@ -2,6 +2,7 @@
 {
   imports = [
     ../modules/core.nix
+    ../modules/nvidia.nix
     ../modules/networking.nix
     ../modules/users.nix
     ../modules/niri.nix
