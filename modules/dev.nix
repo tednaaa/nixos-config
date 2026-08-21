@@ -31,6 +31,7 @@
     git
     delta
     lazygit
+    (callPackage ../packages/relkit.nix { })
     (callPackage ../packages/resto.nix { })
 
     netcat-openbsd
