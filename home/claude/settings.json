@@ -11,9 +11,9 @@
     "claude-md-management@claude-plugins-official": true,
     "figma@claude-plugins-official": true
   },
-  "effortLevel": "xhigh",
-  "skipWorkflowUsageWarning": true,
   "editorMode": "vim",
+  "effortLevel": "xhigh",
+  "tui": "fullscreen",
   "autoCompactEnabled": false,
-  "tui": "fullscreen"
+  "disableRemoteControl": true
 }
