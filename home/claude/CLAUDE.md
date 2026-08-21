@@ -1,0 +1,2 @@
+- NEVER write co-authored by claude in commit messages
+- NEVER write comments, if code is not readable enough that needs to be explained - it's wrong, refactor code to make it more readable
