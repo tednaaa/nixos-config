@@ -34,6 +34,7 @@ let
 
     "claude/settings.json" = ".claude/settings.json";
     "claude/CLAUDE.md" = ".claude/CLAUDE.md";
+    "claude/rules" = ".claude/rules";
 
     "fish/config.fish" = ".config/fish/config.fish";
     "fish/functions" = ".config/fish/functions";
