@@ -33,6 +33,7 @@
     lazygit
     (callPackage ../packages/relkit.nix { })
     (callPackage ../packages/resto.nix { })
+    (callPackage ../packages/playwright-mcp.nix { })
 
     netcat-openbsd
     openssh
