@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+set -uo pipefail
+
+remaining=$(jq -r '.context_window.remaining_percentage // empty')
+percent=${remaining%.*}
+
+[[ $percent =~ ^[0-9]+$ ]] || {
+  printf 'Context: N/A'
+  exit 0
+}
+
+if ((percent > 75)); then
+  color=$'\033[32m'
+elif ((percent > 50)); then
+  color=$'\033[33m'
+elif ((percent > 25)); then
+  color=$'\033[38;5;208m'
+else
+  color=$'\033[31m'
+fi
+
+printf '%sContext: %d%% remaining\033[0m' "$color" "$percent"

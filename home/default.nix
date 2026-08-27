@@ -36,6 +36,7 @@ let
     "claude/CLAUDE.md" = ".claude/CLAUDE.md";
     "claude/rules" = ".claude/rules";
     "claude/skills" = ".claude/skills";
+    "claude/bin" = ".claude/bin";
 
     "fish/config.fish" = ".config/fish/config.fish";
     "fish/functions" = ".config/fish/functions";

@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+set -uo pipefail
+
+file=$(jq -r '.tool_response.filePath // .tool_input.file_path // empty')
+
+[[ $file == *.md && -f $file ]] || exit 0
+
+cd "$(dirname "$file")" || exit 0
+
+pnpm exec prettier --write "$file" >/dev/null 2>&1 ||
+  pnpm dlx prettier --write "$file" >/dev/null 2>&1
+
+exit 0
