@@ -1,3 +1,5 @@
+include "outputs.kdl"
+
 workspace "browser" { open-on-output "HDMI-A-1"; }
 workspace "editor" { open-on-output "HDMI-A-1"; }
 workspace "terminal" { open-on-output "HDMI-A-1"; }
@@ -13,17 +15,6 @@ input {
 
 gestures {
 	hot-corners { off; }
-}
-
-// `niri msg outputs` to get monitors info
-output "eDP-1" {
-	mode "2560x1600"
-	scale 1.5
-}
-output "HDMI-A-1" {
-	mode "1920x1080"
-	scale 1
-	focus-at-startup
 }
 
 layout {

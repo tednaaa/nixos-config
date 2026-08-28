@@ -1,0 +1,10 @@
+// `niri msg outputs` to get monitors info
+output "eDP-1" {
+	mode "2560x1600"
+	scale 1.5
+}
+output "HDMI-A-1" {
+	mode "1920x1080"
+	scale 1
+	focus-at-startup
+}
