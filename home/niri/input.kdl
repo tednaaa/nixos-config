@@ -1,0 +1,12 @@
+input {
+	touchpad {
+		tap
+		scroll-factor vertical=0.5
+	}
+
+	focus-follows-mouse max-scroll-amount="0%"
+}
+
+gestures {
+	hot-corners { off; }
+}

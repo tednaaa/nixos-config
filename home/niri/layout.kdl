@@ -1,0 +1,32 @@
+layout {
+	gaps 3
+
+	center-focused-column "never"
+
+	preset-column-widths {
+		proportion 0.33333
+		proportion 0.5
+		proportion 0.66667
+	}
+
+	default-column-width { proportion 0.5; }
+
+	focus-ring {
+		off
+		width 1
+		active-color "#7fc8ff"
+		inactive-color "#505050"
+
+		// active-gradient from="#80c8ff" to="#c7ff7f" angle=45
+		// inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
+	}
+
+	border {
+		off
+		width 2
+		active-color "#7aa2f7"
+		inactive-color "#7aa2f7"
+	}
+
+	struts { top 3; }
+}

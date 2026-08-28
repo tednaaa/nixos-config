@@ -1,0 +1,6 @@
+spawn-at-startup "waybar"
+spawn-at-startup "swaync"
+spawn-at-startup "fish" "-c" "swaybg_wallpaper"
+
+spawn-sh-at-startup "clipse -listen"
+spawn-sh-at-startup "wl-clip-persist --reconnect-tries 0 --clipboard regular"

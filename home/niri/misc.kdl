@@ -1,0 +1,5 @@
+hotkey-overlay { skip-at-startup; }
+
+prefer-no-csd
+
+screenshot-path null

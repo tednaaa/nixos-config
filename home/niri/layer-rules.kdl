@@ -1,0 +1,4 @@
+layer-rule {
+	match namespace="^launcher$"
+	geometry-corner-radius 12
+}
