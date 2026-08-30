@@ -30,6 +30,7 @@ let
     "fd/ignore" = ".config/fd/ignore";
 
     "git/.gitconfig" = ".gitconfig";
+    "git/ignore" = ".config/git/ignore";
     "npm/.npmrc" = ".npmrc";
 
     "claude/settings.json" = ".claude/settings.json";
