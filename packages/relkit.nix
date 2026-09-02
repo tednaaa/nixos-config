@@ -11,16 +11,16 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "relkit";
-  version = "0.4.0";
+  version = "0.5.0";
 
   src = fetchFromGitHub {
     owner = "tednaaa";
     repo = "relkit";
     rev = "v${version}";
-    hash = "sha256-9MNhlLA7yJYo+X4+/SG2JduFTgxGVnphevM7lWwh4nk=";
+    hash = "sha256-4ORd3wk26yQw7G6Wxgzeh7aJBfwOH3naEfaEKK/Qe54=";
   };
 
-  cargoHash = "sha256-RGvxWuoPH1zfxeEkWsavTDM+G2EoeUAwFdnTRj7Dt5s=";
+  cargoHash = "sha256-vFeHT6He/cOJfoJ+4ewQZas4v4g9P5COW11+TtQx1Ro=";
 
   nativeBuildInputs = [
     makeWrapper
