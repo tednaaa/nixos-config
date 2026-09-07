@@ -7,9 +7,15 @@ description: Set up a persistent notes workspace at .deep-work/<slug>/ holding n
 
 Hard tasks produce findings and decisions that must outlive a context window. Park them in the project, not in the transcript.
 
+## Location
+
+The workspace belongs to the repo the task is about, not the repo Claude happens to be running in. Working from repo A on a task about repo B puts every note under B — `<repo-b>/.deep-work/<slug>/`, with B's own `.deep-work/.gitignore`. Notes about another repo never land in the current one.
+
+Resolve that root before writing anything — `git -C <path inside the target repo> rev-parse --show-toplevel` — and prefix every note path with it. A task spanning two repos keeps its notes in the one being changed.
+
 ## Slug
 
-The workspace is `.deep-work/<slug>/` at the repo root. The slug is a path segment, so it is lowercase ASCII kebab-case: no spaces, no punctuation, no non-Latin characters, nothing that needs quoting in a shell.
+The workspace is `.deep-work/<slug>/` at that repo's root. The slug is a path segment, so it is lowercase ASCII kebab-case: no spaces, no punctuation, no non-Latin characters, nothing that needs quoting in a shell.
 
 Derive it from whatever names the task:
 
@@ -36,11 +42,11 @@ The prefix is the order the notes were written, so sorting the directory replays
 
 ## Procedure
 
-1. List `.deep-work/` first. A matching directory means resume: read it, append the next numbered note, never open a parallel one.
-2. Create `.deep-work/<slug>/`, and `.deep-work/.gitignore` holding a single `*` if it is not already there. The workspace ignores itself, so it never needs a line in the repo `.gitignore` and never gets committed.
+1. Resolve the target repo root, then list its `.deep-work/` first. A matching directory means resume: read it, append the next numbered note, never open a parallel one.
+2. Create `<target repo root>/.deep-work/<slug>/`, and `<target repo root>/.deep-work/.gitignore` holding a single `*` if it is not already there. The workspace ignores itself, so it never needs a line in the repo `.gitignore` and never gets committed.
 3. Write research while investigating, not after. Every claim carries its evidence: `path/to/file.ts:42`, a command with its output, or a URL.
 4. Turn research into a plan before touching code.
-5. Update each step's status as it lands. A stale plan is worse than no plan.
+5. Tick each step's box as it lands. A stale plan is worse than no plan.
 6. Name the workspace path in chat when creating it, and still answer in chat. The notes supplement the reply, they do not replace it.
 
 ## Research note
@@ -77,8 +83,12 @@ Trade-offs.
 
 ## Plan note
 
-```markdown
+Steps are a checklist, never a table. One numbered top-level box per step, sub-steps nested under it — each one a single concrete action naming the file it touches.
+
+````markdown
 # <original task title, verbatim> — plan
+
+<ticket URL, if there is one>
 
 ## Goal
 
@@ -90,11 +100,11 @@ Chosen option and why, in a few lines. Points back to the research note.
 
 ## Steps
 
-| #   | Step | Files | Status |
-| --- | ---- | ----- | ------ |
-| 1   |      |       | todo   |
-
-Status is `todo`, `doing`, `done`, or `dropped`.
+- [ ] **1. <step>**
+    - [ ] <action> — `src/auth/session.ts:88`
+    - [ ] <action>
+- [ ] **2. <step>**
+    - [ ] <action>
 
 ## Verification
 
@@ -103,4 +113,6 @@ Commands to run, and what passing output looks like.
 ## Notes
 
 Decisions made mid-flight, and what was rejected.
-```
+````
+
+Sub-steps indent by four spaces. Tick a box the moment it lands; a step that gets dropped is struck through with the reason after it, not deleted.
