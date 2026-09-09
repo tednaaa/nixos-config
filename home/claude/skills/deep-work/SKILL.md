@@ -1,6 +1,6 @@
 ---
 name: deep-work
-description: Set up a persistent notes workspace at .deep-work/<slug>/ holding numbered markdown notes (01-research.md, 02-plan.md, ...), before starting any hard or long-running task. Use for deep research, investigating an unfamiliar codebase or subsystem, chasing a stubborn bug, comparing libraries or approaches, designing an architecture, planning a migration or a refactor spanning many files, or anything needing several rounds of reading before the first edit. Triggers on "research", "investigate", "figure out", "look into", "plan", "design", "compare", "audit", "migrate", "why is", and on a ticket ID. Also use to resume such a task from an existing .deep-work/ workspace.
+description: Set up a persistent notes workspace at .deep-work/<slug>/ holding markdown notes (research.md, plan.md, ...), before starting any hard or long-running task. Use for deep research, investigating an unfamiliar codebase or subsystem, chasing a stubborn bug, comparing libraries or approaches, designing an architecture, planning a migration or a refactor spanning many files, or anything needing several rounds of reading before the first edit. Triggers on "research", "investigate", "figure out", "look into", "plan", "design", "compare", "audit", "migrate", "why is", and on a ticket ID. Also use to resume such a task from an existing .deep-work/ workspace.
 ---
 
 # Deep work workspace
@@ -27,22 +27,39 @@ Five words is the ceiling. The original title, in its original language and full
 
 ## Files
 
-Any number of markdown notes, numbered in reading order:
+Any number of markdown notes, named for what they hold:
 
 ```
 .deep-work/
   .gitignore
   ab-1234-limit-validation/
-    01-research.md
-    02-plan.md
-    03-edge-cases.md
+    research.md
+    plan.md
+    edge-cases.md
 ```
 
-The prefix is the order the notes were written, so sorting the directory replays the thread. Split a note once it covers more than one concern — a plan with an investigation buried inside it is two notes. Research plus plan is the common shape; pure research is one note; a task that turns a corner earns another.
+Split a note once it covers more than one concern — a plan with an investigation buried inside it is two notes. Research plus plan is the common shape; pure research is one note; a task that turns a corner earns another.
+
+A subject that grows several notes of its own gets a folder to keep them together:
+
+```
+.deep-work/
+  .gitignore
+  competitors/
+    vendor-a/
+      app.md
+      onboarding.md
+    vendor-b.md
+    open-questions.md
+```
+
+Folder names follow the slug rules. Group only what is already several notes — a single note stays a file.
+
+One folder below the workspace root is the ceiling. Anything wanting a third level is a second workspace, not a deeper tree.
 
 ## Procedure
 
-1. Resolve the target repo root, then list its `.deep-work/` first. A matching directory means resume: read it, append the next numbered note, never open a parallel one.
+1. Resolve the target repo root, then list its `.deep-work/` first. A matching directory means resume: read it, add the next note, never open a parallel one.
 2. Create `<target repo root>/.deep-work/<slug>/`, and `<target repo root>/.deep-work/.gitignore` holding a single `*` if it is not already there. The workspace ignores itself, so it never needs a line in the repo `.gitignore` and never gets committed.
 3. Write research while investigating, not after. Every claim carries its evidence: `path/to/file.ts:42`, a command with its output, or a URL.
 4. Turn research into a plan before touching code.
@@ -85,7 +102,7 @@ Trade-offs.
 
 Steps are a checklist, never a table. One numbered top-level box per step, sub-steps nested under it — each one a single concrete action naming the file it touches.
 
-````markdown
+```markdown
 # <original task title, verbatim> — plan
 
 <ticket URL, if there is one>
@@ -101,10 +118,10 @@ Chosen option and why, in a few lines. Points back to the research note.
 ## Steps
 
 - [ ] **1. <step>**
-    - [ ] <action> — `src/auth/session.ts:88`
-    - [ ] <action>
+  - [ ] <action> — `src/auth/session.ts:88`
+  - [ ] <action>
 - [ ] **2. <step>**
-    - [ ] <action>
+  - [ ] <action>
 
 ## Verification
 
@@ -113,6 +130,6 @@ Commands to run, and what passing output looks like.
 ## Notes
 
 Decisions made mid-flight, and what was rejected.
-````
+```
 
-Sub-steps indent by four spaces. Tick a box the moment it lands; a step that gets dropped is struck through with the reason after it, not deleted.
+Sub-steps indent by two spaces. Tick a box the moment it lands; a step that gets dropped is struck through with the reason after it, not deleted.
