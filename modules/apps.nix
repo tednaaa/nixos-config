@@ -15,6 +15,8 @@
   environment.systemPackages = with pkgs; [
     # obsidian
 
+    handy
+
     obs-studio
     telegram-desktop
 

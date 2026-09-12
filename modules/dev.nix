@@ -7,6 +7,7 @@
 
     claude-code
     opencode
+    codex
 
     zellij
     starship
