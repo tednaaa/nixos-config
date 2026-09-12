@@ -12,10 +12,13 @@
     libraries = [ ];
   };
 
+  hardware.uinput.enable = true;
+
   environment.systemPackages = with pkgs; [
     # obsidian
 
     handy
+    wtype
 
     obs-studio
     telegram-desktop

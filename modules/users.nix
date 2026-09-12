@@ -7,6 +7,8 @@
       "networkmanager"
       "wheel"
       "gamemode"
+      "input"
+      "uinput"
     ];
     shell = pkgs.fish;
   };
