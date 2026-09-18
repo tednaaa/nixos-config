@@ -1,6 +1,6 @@
----
-paths: "**/*.md"
----
+- NEVER write a markdown table — not in a note, not in chat, not in a commit message. They are unreadable in a plain editor and wrap to mush in a terminal. A row is a list line: `- key — the rest of the row`. A row needing more than one clause becomes `#### key` with a bullet per clause. Two things compared side by side are two labelled lists, not two columns. A table whose top-left header cell is empty is the worst shape of all — that is a list someone turned sideways.
+
+## Writing markdown
 
 Write the minimum that carries the meaning.
 

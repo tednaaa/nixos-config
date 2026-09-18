@@ -1,0 +1,29 @@
+{
+	// https://opencode.ai/docs/config/#schema
+	"$schema": "https://opencode.ai/config.json",
+	"autoupdate": false,
+	"shell": "fish",
+
+	"instructions": ["~/.agents/rules/*.md"],
+
+	// https://opencode.ai/docs/providers - click on provider and copy from url lowercase name
+	"enabled_providers": ["openai", "xai", "deepseek"],
+
+	"mcp": {
+		"context7": {
+			"type": "remote",
+			"url": "https://mcp.context7.com/mcp",
+		},
+		"gh_grep": {
+			"type": "remote",
+			"url": "https://mcp.grep.app",
+		},
+	},
+
+	"formatter": {
+		"prettier-dlx": {
+			"command": ["pnpm", "dlx", "prettier", "--write", "$FILE"],
+			"extensions": [".md"],
+		},
+	},
+}

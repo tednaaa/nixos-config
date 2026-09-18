@@ -33,21 +33,40 @@ let
     "git/ignore" = ".config/git/ignore";
     "npm/.npmrc" = ".npmrc";
 
+    "opencode/opencode.jsonc" = ".config/opencode/opencode.jsonc";
+    "opencode/tui.jsonc" = ".config/opencode/tui.jsonc";
+    "opencode/commands" = ".config/opencode/commands";
+
     "claude/settings.json" = ".claude/settings.json";
-    "claude/CLAUDE.md" = ".claude/CLAUDE.md";
-    "claude/rules" = ".claude/rules";
-    "claude/skills" = ".claude/skills";
-    "claude/bin" = ".claude/bin";
+    "claude/scripts" = ".claude/scripts";
+
+    "agents/AGENTS.md" = [
+      ".config/opencode/AGENTS.md"
+      ".claude/CLAUDE.md"
+    ];
+    "agents/skills" = [
+      ".agents/skills"
+      ".claude/skills"
+    ];
+    "agents/rules" = [
+      ".agents/rules"
+      ".claude/rules"
+    ];
 
     "fish/config.fish" = ".config/fish/config.fish";
     "fish/functions" = ".config/fish/functions";
     "fish/conf.d" = ".config/fish/conf.d";
   };
 
-  mkHomeDotsLinks = lib.mapAttrs' (src: target: {
-    name = target;
-    value.source = config.lib.file.mkOutOfStoreSymlink "${home_dots}/${src}";
-  }) home_dots_symlinks;
+  mkHomeDotsLinks = lib.concatMapAttrs (
+    src: targets:
+    lib.listToAttrs (
+      map (target: {
+        name = target;
+        value.source = config.lib.file.mkOutOfStoreSymlink "${home_dots}/${src}";
+      }) (lib.toList targets)
+    )
+  ) home_dots_symlinks;
 
   allLinks = mkHomeDotsLinks;
 in

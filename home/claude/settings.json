@@ -15,22 +15,6 @@
 
   "statusLine": {
     "type": "command",
-    "command": "\"$HOME/.claude/bin/statusline\""
-  },
-
-  "hooks": {
-    "PostToolUse": [
-      {
-        "matcher": "Write|Edit",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "\"$HOME/.claude/bin/format-md\"",
-            "statusMessage": "Formatting markdown",
-            "timeout": 60
-          }
-        ]
-      }
-    ]
+    "command": "\"$HOME/.claude/scripts/statusline\""
   }
 }

@@ -1,4 +1,4 @@
-#### Follow steps from NixOS manual for disk formating
+#### Follow steps from NixOS manual for disk formatting
 
 - https://nixos.org/manual/nixos/stable/#sec-installation-manual
 
@@ -24,7 +24,7 @@ passwd {your_user}
 reboot
 ```
 
-#### Give to user edit access
+#### Give the user edit access
 
 ```fish
 sudo chown -R $USER:users ~/nixos-config

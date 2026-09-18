@@ -1,0 +1,1 @@
+- for research, investigation, or any multi-step task, use the `deep-work` skill — notes go in `.deep-work/<slug>/`, never in the transcript alone
