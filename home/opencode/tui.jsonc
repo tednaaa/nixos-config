@@ -1,0 +1,15 @@
+{
+	"$schema": "https://opencode.ai/tui.json",
+	"theme": "kanagawa",
+
+	"cursor": { "style": "block", "blinking": false },
+	"scroll_acceleration": { "enabled": true },
+	"diff_style": "stacked",
+
+	"attention": {
+		"enabled": true,
+		"notifications": true,
+		"sound": true,
+		"volume": 0.5,
+	},
+}
