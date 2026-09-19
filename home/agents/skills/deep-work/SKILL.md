@@ -130,7 +130,9 @@ After the go, Claude commits its own work. The go is the permission, so no commi
 
 ## plan.md
 
-Steps are a checklist, never a table. One numbered top-level box per step, sub-steps nested under it — each one a single concrete action naming the file it touches.
+The plan is an index, not a document. Every line is an action or a pointer to the file holding the reasoning behind it. What the user must read to decide sits here; everything else sits in `research/` or `notes/` and is reached by its path.
+
+Nothing is said twice. A finding is a decision in Approach, a conclusion in the Research listing and an action in a step — three different sentences, never one sentence three times.
 
 ```markdown
 # <original task title, verbatim> — plan
@@ -145,11 +147,12 @@ Branch: `<branch the commits land on>`
 
 ## Goal
 
-What done looks like.
+- One outcome per line, in the user's terms.
 
 ## Approach
 
-Chosen option and why, in a few lines, naming the research that settled it: `research/998__limit_error_shape.md`.
+- <decision> — `research/998__limit_error_shape.md`
+- <decision> — `research/999__legacy_limit_callers.md`
 
 ## Steps
 
@@ -161,7 +164,7 @@ Chosen option and why, in a few lines, naming the research that settled it: `res
 
 ## Verification
 
-Commands to run, and what passing output looks like.
+- Command to run — what passing looks like
 
 ## Research
 
@@ -174,9 +177,23 @@ Commands to run, and what passing output looks like.
 - `notes/999__rejected_zod_refine.md` — what it decided, in one line
 ```
 
-Sub-steps indent by two spaces. Tick a box the moment it lands; a step that gets dropped is struck through with the reason after it, not deleted.
+Every section is a list, and the sections above are all of them. No sub-heading inside a section, and no paragraph anywhere in the plan — a paragraph is content that belongs in a research file. A `>` remark of a line or two and a code block showing the shape of a call are the exceptions.
 
-Open questions come first, straight under the heading, because they are what the user has to answer. Every question raised anywhere — a research file, a note, a step — lands there, naming the file it came from. An answered question leaves the list, its answer going into the plan or the file it changes. With nothing open, the section is left out.
+A line long enough to wrap three times in a terminal is two lines, or one line and a research file.
+
+### Steps
+
+Steps are a checklist, never a table. One numbered top-level box per step, sub-steps nested two spaces under it.
+
+A sub-step is one action and one path, and stops there — no `so that`, no `rather than`, no clause defending the choice. The research file the step rests on carries that, and the step names it instead when the reason has to be one click away. A sub-step listing what to test is the one that keeps several clauses, one behaviour each.
+
+Tick a box the moment it lands; a step that gets dropped is struck through with the reason after it, not deleted.
+
+### Open questions
+
+Open questions come first, straight under the heading, because they are what the user has to answer. Every question raised anywhere — a research file, a note, a step — lands there, naming the file it came from. A question is one line: the choice, the options, the path. An answered question leaves the list, its answer going into the plan or the file it changes. With nothing open, the section is left out.
+
+### Research and Notes
 
 Research and Notes list every file in their folder, newest first, by its path relative to `plan.md`. The line after the path is the conclusion, not the topic — the user reads that line instead of the file. Wherever the approach, a step or an action rests on one of those files, it names the path there too.
 
