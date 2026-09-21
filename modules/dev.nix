@@ -1,5 +1,7 @@
 { pkgs, ... }:
 {
+  environment.sessionVariables.AGENT_BROWSER_EXECUTABLE_PATH = "/run/current-system/sw/bin/google-chrome-stable";
+
   environment.systemPackages = with pkgs; [
     zed-editor
     neovim
@@ -7,6 +9,7 @@
 
     claude-code
     opencode
+    agent-browser
 
     zellij
     starship
@@ -33,7 +36,6 @@
     lazygit
     (callPackage ../packages/relkit.nix { })
     (callPackage ../packages/resto.nix { })
-    (callPackage ../packages/playwright-mcp.nix { })
 
     netcat-openbsd
     openssh
