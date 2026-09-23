@@ -20,5 +20,7 @@
 
     firefox
     google-chrome
+
+    localsend
   ];
 }

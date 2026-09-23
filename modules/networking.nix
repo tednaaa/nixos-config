@@ -13,7 +13,10 @@
     ];
     firewall = {
       enable = true;
-      allowedTCPPorts = [ 55555 ]; # for minecraft
+      allowedTCPPorts = [
+        55555 # for minecraft
+        53317 # for localsend
+      ];
       allowedUDPPorts = [ ];
     };
   };
