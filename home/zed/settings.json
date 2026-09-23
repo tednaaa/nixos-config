@@ -108,6 +108,11 @@
         },
       },
     },
+    "tailwindcss-language-server": {
+      "settings": {
+        "classFunctions": ["cn", "cva"],
+      },
+    },
   },
 
   "git": { "inline_blame": { "enabled": false } },
