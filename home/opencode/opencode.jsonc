@@ -5,6 +5,34 @@
 	"shell": "fish",
 
 	"instructions": ["~/.agents/rules/*.md"],
+	"permission": {
+		"*": "ask",
+		"external_directory": "allow",
+		"read": "allow",
+		"list": "allow",
+		"grep": "allow",
+		"glob": "allow",
+		"edit": "allow",
+		"todowrite": "allow",
+		"skill": "allow",
+
+		"context7_*": "allow",
+		"gh_grep_*": "allow",
+
+		"bash": {
+			"ls *": "allow",
+			"rg *": "allow",
+
+			"git rev-parse --show-toplevel": "allow",
+			"git branch --show-current": "allow",
+			"git status *": "allow",
+			"git switch *": "allow",
+			"git add *": "allow",
+			"git commit *": "allow",
+			"git diff *": "allow",
+			"git log *": "allow",
+		},
+	},
 
 	// https://opencode.ai/docs/providers - click on provider and copy from url lowercase name
 	"enabled_providers": ["openai", "xai", "deepseek"],
@@ -21,6 +49,8 @@
 	},
 
 	"formatter": {
+		"ruff": { "disabled": true },
+		"uv": { "disabled": true },
 		"prettier-dlx": {
 			"command": ["pnpm", "dlx", "prettier", "--write", "$FILE"],
 			"extensions": [".md"],
