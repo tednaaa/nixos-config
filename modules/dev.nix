@@ -7,6 +7,7 @@
     neovim
     # godot
 
+    herdr
     claude-code
     opencode
     agent-browser
