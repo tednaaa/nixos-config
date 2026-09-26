@@ -32,6 +32,7 @@ window-rule {
 window-rule {
 	match app-id="yazi"
 	match app-id="org.gnome.Nautilus"
+	match app-id="org.gnome.Loupe"
 	match app-id="org.kde.dolphin"
 	open-floating true
 	default-column-width { proportion 0.8; }
