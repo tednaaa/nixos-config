@@ -73,5 +73,6 @@
     bluetui
     p7zip
     nautilus
+    loupe
   ];
 }
