@@ -1,1 +1,1 @@
-- for research, investigation, or any multi-step task, use the `deep-work` skill — notes go in `.deep-work/<slug>/`, never in the transcript alone
+- Load the `deep-work` skill only when the user explicitly asks to create a persistent plan for a specific task, or to resume an existing deep-work plan. Do not load it for ordinary research, investigations, multi-step implementation, ticket IDs, questions about the skill, or plan mode alone.
