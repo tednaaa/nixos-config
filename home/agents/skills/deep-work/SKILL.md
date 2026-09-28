@@ -1,6 +1,6 @@
 ---
 name: deep-work
-description: Set up a persistent notes workspace at .deep-work/<nnn>__<slug>/ holding plan.md plus research/ and notes/ folders, before starting any hard or long-running task, then stop and change nothing until the user has reviewed plan.md and explicitly said to start — review feedback only updates the plan. Use for deep research, investigating an unfamiliar codebase or subsystem, chasing a stubborn bug, comparing libraries or approaches, designing an architecture, planning a migration or a refactor spanning many files, or anything needing several rounds of reading before the first edit. Triggers on "research", "investigate", "figure out", "look into", "plan", "design", "compare", "audit", "migrate", "why is", and on a ticket ID. Also use to resume such a task from an existing .deep-work/ workspace.
+description: Use ONLY when the user explicitly asks to create a persistent plan for a specific task (for example, "create a plan for X"), or asks to resume an existing deep-work plan. Creates a .deep-work/<nnn>__<slug>/ workspace for research and plan review. Do not load for ordinary research, investigations, multi-step tasks, ticket IDs, questions about the skill, or plan mode alone.
 ---
 
 # Deep work workspace
@@ -11,9 +11,7 @@ Research and plan come first, and then nothing else happens until the user has r
 
 ## Location
 
-The workspace belongs to the repo the task is about, not the repo Claude happens to be running in. Working from repo A on a task about repo B puts every note under B — `<repo-b>/.deep-work/<nnn>__<slug>/`, with B's own `.deep-work/.gitignore`. Notes about another repo never land in the current one.
-
-Resolve that root before writing anything — `git -C <path inside the target repo> rev-parse --show-toplevel` — and prefix every note path with it. A task spanning two repos keeps its notes in the one being changed.
+The workspace lives in the repo Claude is running in — `git rev-parse --show-toplevel` from the working directory. A task touching other repos keeps all its notes there too, in one workspace; paths into another repo are written `~/`-prefixed.
 
 ## Number
 
@@ -90,8 +88,8 @@ Both follow the same rules:
 
 ## Procedure
 
-1. Resolve the target repo root, then list its `.deep-work/` first. A directory whose slug matches, whatever its number, means resume: read `plan.md`, then `research/` and `notes/` newest first, then carry on from where it stopped — never open a parallel workspace. A plan with no ticked box is still under review: post its path and stop, unless the message that resumed it says to start.
-2. Create `<target repo root>/.deep-work/<nnn>__<slug>/` with the next number down, and `<target repo root>/.deep-work/.gitignore` holding a single `*` if it is not already there. The workspace ignores itself, so it never needs a line in the repo `.gitignore` and never gets committed.
+1. Resolve the repo root, then list its `.deep-work/` first. A directory whose slug matches, whatever its number, means resume: read `plan.md`, then `research/` and `notes/` newest first, then carry on from where it stopped — never open a parallel workspace. A plan with no ticked box is still under review: post its path and stop, unless the message that resumed it says to start.
+2. Create `<repo root>/.deep-work/<nnn>__<slug>/` with the next number down, and `<repo root>/.deep-work/.gitignore` holding a single `*` if it is not already there. The workspace ignores itself, so it never needs a line in the repo `.gitignore` and never gets committed.
 3. Write research while investigating, not after — a research file per question, the moment the question comes up. Every claim carries its evidence: `path/to/file.ts:42`, a command with its output, or a URL.
 4. Turn research into a plan before touching code.
 5. Stop once `plan.md` is written, as described in Stop below. Post the plan path and a short summary in chat, then wait.
