@@ -32,9 +32,12 @@
     fd
     dust
     bat
+
     git
     delta
     lazygit
+    lefthook
+
     (callPackage ../packages/relkit.nix { })
     (callPackage ../packages/resto.nix { })
 
