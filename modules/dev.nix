@@ -9,7 +9,7 @@
 
     herdr
     claude-code
-    opencode
+    # opencode
     agent-browser
 
     zellij
@@ -36,7 +36,6 @@
     git
     delta
     lazygit
-    lefthook
 
     (callPackage ../packages/relkit.nix { })
     (callPackage ../packages/resto.nix { })
@@ -48,14 +47,13 @@
     cmake
     # zrok
 
-    doctl
-    glab
-    kubectl
-    kubernetes-helm
-    k9s
-    ansible
-    opentofu
-    fluxcd
+    # glab
+    # kubectl
+    # kubernetes-helm
+    # k9s
+    # ansible
+    # opentofu
+    # fluxcd
 
     devenv
     uv
