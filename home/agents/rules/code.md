@@ -1,5 +1,9 @@
 - NEVER write comments, if code is not readable enough that needs to be explained - it's wrong, refactor code to make it more readable
+- Only exceptions, each one compact line: `TODO:` for deferred work, `NOTE:` for a fact the code cannot express, and the reason next to a disabled lint rule (`// eslint-disable-next-line no-console -- CLI output`, or the language's equivalent).
+- If a piece of code still needs an explanation after refactoring, ask me instead of writing it down.
 
 - ALWAYS reference code as a repo-relative path plus exactly ONE line number — `src/api/handlers/session.ts:142` — never a range like `:142-160`, never an absolute path, never a bare filename, never a `./` prefix, never "line 142" in prose. Point at the single most relevant line: the definition, the condition, the call itself. Same form in chat and in markdown notes, so `gf` opens it.
 
 - ALWAYS write code and tests in English: identifiers, comments, `describe`/`it`/`test` titles, commit-facing strings. Only user-facing copy and fixture data that mirrors it stay in the product's language.
+
+- Write environment names in full — `production`, `staging` — in identifiers, config keys, docs and chat. Never `prod`, `stage`, `stag`.
