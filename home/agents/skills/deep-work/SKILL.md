@@ -1,151 +1,84 @@
 ---
 name: deep-work
-description: Use ONLY when the user types /deep-work, or asks to resume an existing deep-work plan. Creates a .deep-work/<nnn>__<slug>/ workspace for research and a plan the user reviews with inline comments. Do not load for ordinary research, investigations, brainstorming in chat, multi-step tasks, ticket IDs, questions about the skill, or plan mode alone.
+description: Use ONLY when the user types /deep-work or asks to resume an existing deep-work plan. Creates a .deep-work/<nnn>__<slug>/ workspace with research and a plan the user reviews inline. Do not load for ordinary research, brainstorming in chat, multi-step tasks, ticket IDs, questions about the skill, or plan mode.
 ---
 
-# Deep work workspace
+# Deep work
 
-Hard tasks produce findings and decisions that must outlive a context window. Park them in the project, not in the transcript.
+Research and plan go into the repo, so they outlive the context window. Nothing changes until the user has reviewed the plan and said to start.
 
-Research and plan come first, and then nothing else happens until the user has reviewed the plan and said to start.
+## Workspace
 
-## Location
-
-The workspace lives in the repo Claude is running in — `git rev-parse --show-toplevel` from the working directory. A task touching other repos keeps all its notes there too, in one workspace; paths into another repo are written `~/`-prefixed.
-
-## Number
-
-The workspace is `.deep-work/<nnn>__<slug>/` at that repo's root. The number counts down, so the newest workspace sorts to the top of any listing:
-
-- Three digits, zero-padded
-- The first workspace in a repo is `999`
-- Each new one takes the lowest existing number minus one
-- A double underscore separates the number from the slug, so a slug starting with a ticket number never blurs into it
+- Path: `<repo root>/.deep-work/<nnn>__<slug>/`, root from `git rev-parse --show-toplevel`. A task spanning repos keeps one workspace here; other repos' paths are `~/`-prefixed.
+- `.deep-work/.gitignore` holds `*` — create it if missing; nothing here is committed.
+- `<nnn>`: three digits counting down — the first is `999`, each next is the lowest existing minus one. A resumed workspace keeps its number.
+- `<slug>`: lowercase ASCII snake_case, at most five words. Ticket ID first when there is one (`ab_1234_limit_validation`), otherwise the summary (`token_refresh_race`). A non-English title is translated; the original goes verbatim in the `plan.md` heading.
 
 ```
-.deep-work/
-  .gitignore
-  996__valibot_formisch/
-  997__use_route_query/
-  998__improve_invalidation_ux/
-  999__improve_admin_panel_ux/
+999__ab_1234_limit_validation/
+  plan.md
+  research/999__legacy_limit_callers.md
+  notes/999__rejected_zod_refine.md
 ```
 
-A resumed workspace keeps its number. Renumbering would break every path already quoted in chat.
-
-## Slug
-
-The slug is a path segment, so it is lowercase ASCII snake_case: no spaces, no hyphens, no punctuation, no non-Latin characters, nothing that needs quoting in a shell.
-
-Derive it from whatever names the task:
-
-- A ticket keeps its ID as the prefix, followed by a few words of the title: `ab_1234_limit_validation`, `38_log_out_all_devices`
-- A non-English title is translated or transliterated down to those few words, never copied verbatim
-- No ticket means just the summary: `token_refresh_race`, `bun_vs_node_runtime`
-
-Five words is the ceiling. The original title, in its original language and full length, goes in the `plan.md` heading — that is what the heading is for.
-
-## Structure
-
-A workspace holds these three entries and nothing else:
-
-```
-.deep-work/
-  .gitignore
-  999__ab_1234_limit_validation/
-    notes/
-      998__retry_on_429.md
-      999__rejected_zod_refine.md
-    research/
-      998__limit_error_shape.md
-      999__legacy_limit_callers.md
-    plan.md
-```
-
-- `plan.md` — the only file the user reads: the steps, ticked as they land, pointing at every research file and note
-- `research/` — the investigation, one question per file
-- `notes/` — everything else, one note per file
-
-No other file or folder is ever created, at the root or inside `research/` or `notes/` — no `summary.md`, no `edge-cases.md`, no `images/`, no scratch scripts or logs. Whatever seems to need one becomes a note, with command output pasted in as a trimmed excerpt.
-
-The user never browses `research/` or `notes/`. They open a file only when `plan.md` sends them there, so a file the plan does not point at is lost, and anything the user must know sits in `plan.md` itself.
-
-Pure research still gets a `plan.md`, since nothing else is read. It keeps only Open questions, Goal, Approach, Research and Notes — Goal is the question, Approach is the answer.
-
-## Research and notes
-
-`research/` and `notes/` work exactly alike and differ only in what goes in them:
-
-- `research/` — findings that answer a question the task raises, each backed by evidence
-- `notes/` — what fits neither research nor the steps: a decision made mid-flight, a rejected idea, an edge case, a side finding, user feedback
-
-Both follow the same rules:
-
-- Named `<nnn>__<slug>.md`, counting down from `999` like workspaces, so the newest file sorts first — each folder keeps its own count
-- One file, one concern — more on the same concern edits that file, a new concern is a new file
-- The folder is created with its first file
-- Every file is listed in `plan.md`; one added after the plan exists gets its line in the same pass
+- `plan.md` — the only file the user reads
+- `research/` — one question per file, every claim with evidence: `path/to/file.ts:42`, command output, URL
+- `notes/` — the rest: mid-flight decisions, rejected ideas, edge cases, review feedback
+- Files are `<nnn>__<slug>.md`, counting down per folder, one concern each; a folder appears with its first file
+- Nothing else is created — no summaries, images, scripts or logs; command output goes into a note as an excerpt
+- `plan.md` lists every research and note file; a file it does not point at is lost
 
 ## Procedure
 
-1. Resolve the repo root, then list its `.deep-work/` first. A directory whose slug matches, whatever its number, means resume: read `plan.md`, then `research/` and `notes/` newest first, then carry on from where it stopped — never open a parallel workspace. A plan with no ticked box is still under review: post its path and stop, unless the message that resumed it says to start.
-2. Create `<repo root>/.deep-work/<nnn>__<slug>/` with the next number down, and `<repo root>/.deep-work/.gitignore` holding a single `*` if it is not already there. The workspace ignores itself, so it never needs a line in the repo `.gitignore` and never gets committed.
-3. Write research while investigating, not after — a research file per question, the moment the question comes up. Every claim carries its evidence: `path/to/file.ts:42`, a command with its output, or a URL.
-4. Turn research into a plan before touching code.
-5. Stop once `plan.md` is written, as described in Stop below. Post the plan path and a short summary in chat, then wait.
-6. Commit each step and tick its box as it lands, as described in Commits below. A stale plan is worse than no plan.
-7. Name the workspace path in chat when creating it, and still answer in chat. The notes supplement the reply, they do not replace it.
+1. List `.deep-work/`. A matching slug means resume: read `plan.md`, then research and notes newest first, and continue. A plan with no ticked box is under review: post its path and stop.
+2. Otherwise create the workspace and name its path in chat.
+3. Write research while investigating, not after.
+4. Write `plan.md`, post its path and a short summary, stop.
 
 ## Stop
 
-Once `plan.md` is written, the task halts. Nothing that changes anything happens — no code edits, no branches, no commits, no installs, no migrations, no services started — until the user explicitly says to start.
+Once `plan.md` exists nothing changes — no edits, branches, commits, installs, migrations or services — until the go: "start", "go", "implement it", "do step 1".
 
-Only an instruction to start implementing is the go: "start", "go", "implement it", "do step 1". None of these are:
-
-- The request that opened the task ("let's do this ticket") — the user has not read the plan yet
-- Approval of the plan — "looks good", "ok", "makes sense"
-- Review feedback — "use X instead", "drop step 3", a question about a step
+- Not the go: the request that opened the task, approval ("looks good"), review feedback
+- Feedback plus the go in one message: update the plan, then start
+- Unsure whether it is the go: ask
 
 ## Review
 
-The user reviews `plan.md` in place. Every step heading is followed by an empty review zone closed by a `---` line, and the user writes there in any form — prose, `-` points, `>` lines. An empty zone means the step is accepted as written. Checkboxes are Claude's alone: ticked as steps land, never by the user, never a sign of approval.
+Each step heading is followed by one empty line, the user's review zone, then `---`. The user writes there in any form; an empty zone means accepted. Claude never writes in a zone. Checkboxes are Claude's progress only.
 
-Review is a loop, and every pass through it ends stopped:
+Each pass ends stopped:
 
-1. Read every non-empty review zone in `plan.md`, and any feedback given in chat
-2. Apply each to `plan.md`, and to the research file whose finding it changes — reading code to check a suggestion is fine, editing it is not
-3. Move the feedback out of `plan.md` into one note for the pass, `notes/<nnn>__review_<n>.md`: each zone verbatim, the step it sat under, and what was decided — then leave the zone empty again
-4. A question about a step ("explain", "why?") means the step is unclear: rewrite it so the question would not arise, put the question and its answer verbatim in the pass's note, and say nothing about it in chat
-5. A comment that needs the user's answer becomes an Open question instead of a decision
+1. Read every non-empty zone and any chat feedback
+2. Apply it to `plan.md` and to the research file it changes — reading code is fine, editing it is not
+3. A question ("explain", "why?") means the step is unclear: rewrite the step, say nothing in chat
+4. A comment that needs the user's answer becomes an Open question
+5. Move each zone verbatim, with its step and the decision or answer, into `notes/<nnn>__review_<n>.md`, and empty the zone
 6. Post the other changes in chat
-7. Stop again and wait for the next review or the go
 
-A message carrying both feedback and the go ("drop step 3, then start") updates the plan first, then starts. When it is unclear whether a message is the go, ask — never guess towards starting.
+## After the go
 
-## Commits
+Commit per the git rules:
 
-After the go, Claude commits its own work, following the git rules for the message, history rewriting and pushing:
-
-- Commits land on the branch `plan.md` names, so the branch is reviewed with the rest of the plan; when it is not the current one, creating it is the first action after the go
-- One commit per top-level step, made the moment the step lands — then tick the box and append the short SHA: `### [x] 1. <step> — a1b2c3d`
-- Stage the step's files by path, never `git add -A` or `git add .`, so unrelated changes in the tree stay out
+- On the branch `plan.md` names; create it first when it is not current
+- One commit per step as it lands, staged by path, never `git add -A` or `git add .`
+- Tick sub-steps as they land, then the step with its short SHA: `### [x] 1. <step> — a1b2c3d`
+- A dropped step is struck through with the reason, never deleted
 
 ## plan.md
 
-The plan is an index, not a document. Every line is an action or a pointer to the file holding the reasoning behind it. What the user must read to decide sits here; everything else sits in `research/` or `notes/` and is reached by its path.
-
-Nothing is said twice. A finding is a decision in Approach, a conclusion in the Research listing and an action in a step — three different sentences, never one sentence three times.
+An index, not a document: every line is an action or a pointer to the file holding its reasoning. Nothing is said twice.
 
 ```markdown
 # <original task title, verbatim> — plan
 
 ## Open questions
 
-- Unresolved, and what would resolve it — `research/999__legacy_limit_callers.md`
+- <choice, options> — `research/999__legacy_limit_callers.md`
 
-<ticket URL, if there is one>
+<ticket URL, if any>
 
-Branch: `<branch the commits land on>`
+Branch: `<branch>`
 
 ## Goal
 
@@ -154,7 +87,6 @@ Branch: `<branch the commits land on>`
 ## Approach
 
 - <decision> — `research/998__limit_error_shape.md`
-- <decision> — `research/999__legacy_limit_callers.md`
 
 ## Steps
 
@@ -163,50 +95,26 @@ Branch: `<branch the commits land on>`
 ---
 
 - [ ] <action> — `src/auth/session.ts:88`
-- [ ] <action> — `notes/998__retry_on_429.md`
-
-### [ ] 2. <step>
-
----
-
-- [ ] <action>
 
 ## Verification
 
-- Command to run — what passing looks like
+- <command> — what passing looks like
 
 ## Research
 
-- `research/998__limit_error_shape.md` — what it concluded, in one line
-- `research/999__legacy_limit_callers.md` — what it concluded, in one line
+- `research/998__limit_error_shape.md` — its conclusion
 
 ## Notes
 
-- `notes/998__retry_on_429.md` — what it decided, in one line
-- `notes/999__rejected_zod_refine.md` — what it decided, in one line
+- `notes/999__rejected_zod_refine.md` — its decision
 ```
 
-Every section is a list, and the sections above are all of them. No sub-heading inside a section except the step headings, and no paragraph anywhere in the plan — a paragraph is content that belongs in a research file. A `>` remark of a line or two and a code block showing the shape of a call are the exceptions.
-
-Claude never writes between a step heading and its `---`. That zone is the user's.
-
-A line long enough to wrap three times in a terminal is two lines, or one line and a research file.
-
-### Steps
-
-Steps are a checklist, never a table. Each step is a `### [ ] <n>. <step>` heading, one empty line as the user's review zone, a `---` line, then its sub-steps as a flat list of boxes.
-
-A sub-step is one action and one path, and stops there — no `so that`, no `rather than`, no clause defending the choice. The research file the step rests on carries that, and the step names it instead when the reason has to be one click away. A sub-step listing what to test is the one that keeps several clauses, one behaviour each.
-
-Tick a box the moment it lands; a step that gets dropped has its heading struck through with the reason after it, not deleted.
-
-### Open questions
-
-Open questions come first, straight under the heading, because they are what the user has to answer. Every question raised anywhere — a research file, a note, a step — lands there, naming the file it came from. A question is one line: the choice, the options, the path. An answered question leaves the list, its answer going into the plan or the file it changes. With nothing open, the section is left out.
-
-### Research and Notes
-
-Research and Notes list every file in their folder, newest first, by its path relative to `plan.md`. The line after the path is the conclusion, not the topic — the user reads that line instead of the file. Wherever the approach, a step or an action rests on one of those files, it names the path there too.
+- Only these sections, only lists: no paragraphs, no sub-headings except steps; a short `>` remark or a code block showing a call shape is allowed
+- A line that wraps three times becomes two lines or a research file
+- Open questions: everything unresolved from any file, one line each; answered ones leave; none — section omitted
+- A sub-step is one action and one path, no justification clause — the reason lives in the research file it names; a testing sub-step may list several behaviours
+- Research and Notes: every file, newest first, path relative to `plan.md`, then its conclusion, not its topic
+- Pure research keeps only Open questions, Goal (the question), Approach (the answer), Research and Notes
 
 ## research/<nnn>__<slug>.md
 
@@ -215,21 +123,17 @@ Research and Notes list every file in their folder, newest first, by its path re
 
 ## Findings
 
-- Claim — evidence (`src/auth/session.ts:88`, command output, URL)
+- Claim — evidence
 
 ## Constraints
 
-What any solution has to respect.
+- What any solution has to respect
 
 ## Options
 
 ### A — <name>
 
-Trade-offs.
-
-### B — <name>
-
-Trade-offs.
+- Trade-offs
 ```
 
-A section with nothing in it is left out. What the research leaves unresolved goes in the Open questions of `plan.md`, not here.
+Empty sections are left out; anything unresolved goes to Open questions in `plan.md`.

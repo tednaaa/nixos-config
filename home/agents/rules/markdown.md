@@ -1,20 +1,16 @@
-- NEVER write a markdown table — not in a note, not in chat, not in a commit message. They are unreadable in a plain editor and wrap to mush in a terminal. A row is a list line: `- key — the rest of the row`. A row needing more than one clause becomes a `key` heading with a bullet per clause. Two things compared side by side are two labelled lists, not two columns. A table whose top-left header cell is empty is the worst shape of all — that is a list someone turned sideways.
+- NEVER write a markdown table — not in notes, chat or commits. A row is `- key — rest`; a row with several clauses is a `key` heading with a bullet per clause; two things compared are two labelled lists.
 
 ## Writing markdown
 
 Write the minimum that carries the meaning.
 
-- Heading, then content. No preamble, no transition sentences, no closing summary that repeats the body.
-- One idea per line. Cut every adjective that carries no fact.
+- Heading, then content. No preamble, transitions or closing summary.
+- One idea per line. Cut adjectives that carry no fact.
 - Never describe what an image or code block already shows.
-- Quote real artifacts verbatim — screen titles, labels, error text. Don't paraphrase them.
-
-Structure comes from headings and lists, never from bold.
-
-- No `**Label.** text` lead-ins and no inline bold for emphasis. If a sentence needs bold to land, rewrite the sentence.
-- A label with an explanation is a `Label` heading followed by a `- ` bullet holding the explanation — not `- Label — explanation` on one line. Plain lists stay plain when the items are short and unlabelled.
-- A heading is one level below the heading it sits under — `###` under `##`, never `####` under `##`. With no heading above it, a label starts at `####`.
-- A sentence packing three or more parallel facts becomes a `> Lead-in:` blockquote (colon kept) followed by a list, one fact per line. A colon that just means "namely" before a single fact stays inline.
-- A chain of steps (`A → B → C`) is a list, one step per line, each line keeping its trailing `→`. Never run it inside a sentence.
-
-A side remark — a consequence, a bet, a caveat that is not the claim itself — goes in a `>` blockquote instead of its own paragraph. It never ends in a colon, which marks a lead-in.
+- Quote real artifacts verbatim — screen titles, labels, error text.
+- No bold: no `**Label.**` lead-ins, no emphasis. Structure comes from headings and lists.
+- A label with an explanation is a `Label` heading and a `- ` bullet, not `- Label — explanation`. Short unlabelled items stay a plain list.
+- A heading is one level below its parent — `###` under `##`. With no heading above, a label starts at `####`.
+- Three or more parallel facts in a sentence → a `> Lead-in:` blockquote, colon kept, then a list. A colon before a single fact stays inline.
+- A chain `A → B → C` is a list, one step per line, each keeping its trailing `→`.
+- A side remark — consequence, bet, caveat — goes in a `>` blockquote that never ends in a colon.

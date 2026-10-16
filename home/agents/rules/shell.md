@@ -1,2 +1,2 @@
-- My interactive shell is fish. Every command you give me to run is fish syntax: `set name value`, `set -x NAME value`, `$name` never `${name}`, `(cmd)` never `$(cmd)`, `; and` / `; or` or `&&` / `||`.
-- `${pkgs.foo}` only works inside `.nix` files; at the shell, installed packages live under `/run/current-system/sw/`.
+- My shell is fish; every command I run is fish syntax: `set name value`, `set -x NAME value`, `$name` not `${name}`, `(cmd)` not `$(cmd)`.
+- `${pkgs.foo}` works only inside `.nix` files; at the shell, packages live under `/run/current-system/sw/`.
