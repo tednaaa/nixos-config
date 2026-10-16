@@ -1,6 +1,6 @@
 ---
 name: deep-work
-description: Use ONLY when the user explicitly asks to create a persistent plan for a specific task (for example, "create a plan for X"), or asks to resume an existing deep-work plan. Creates a .deep-work/<nnn>__<slug>/ workspace for research and plan review. Do not load for ordinary research, investigations, multi-step tasks, ticket IDs, questions about the skill, or plan mode alone.
+description: Use ONLY when the user types /deep-work, or asks to resume an existing deep-work plan. Creates a .deep-work/<nnn>__<slug>/ workspace for research and a plan the user reviews with inline comments. Do not load for ordinary research, investigations, brainstorming in chat, multi-step tasks, ticket IDs, questions about the skill, or plan mode alone.
 ---
 
 # Deep work workspace
@@ -106,25 +106,29 @@ Only an instruction to start implementing is the go: "start", "go", "implement i
 - Approval of the plan — "looks good", "ok", "makes sense"
 - Review feedback — "use X instead", "drop step 3", a question about a step
 
-Review feedback is a loop, and every pass through it ends stopped:
+## Review
 
-1. Apply the feedback to `plan.md`, and to the research file whose finding it changes — reading code to check a suggestion is fine, editing it is not
-2. Post what changed in chat
-3. Stop again and wait for the next review or the go
+The user reviews `plan.md` in place. Every step heading is followed by an empty review zone closed by a `---` line, and the user writes there in any form — prose, `-` points, `>` lines. An empty zone means the step is accepted as written. Checkboxes are Claude's alone: ticked as steps land, never by the user, never a sign of approval.
+
+Review is a loop, and every pass through it ends stopped:
+
+1. Read every non-empty review zone in `plan.md`, and any feedback given in chat
+2. Apply each to `plan.md`, and to the research file whose finding it changes — reading code to check a suggestion is fine, editing it is not
+3. Move the feedback out of `plan.md` into one note for the pass, `notes/<nnn>__review_<n>.md`: each zone verbatim, the step it sat under, and what was decided — then leave the zone empty again
+4. A question about a step ("explain", "why?") means the step is unclear: rewrite it so the question would not arise, put the question and its answer verbatim in the pass's note, and say nothing about it in chat
+5. A comment that needs the user's answer becomes an Open question instead of a decision
+6. Post the other changes in chat
+7. Stop again and wait for the next review or the go
 
 A message carrying both feedback and the go ("drop step 3, then start") updates the plan first, then starts. When it is unclear whether a message is the go, ask — never guess towards starting.
 
 ## Commits
 
-After the go, Claude commits its own work. The go is the permission, so no commit is asked about or left as a suggestion:
+After the go, Claude commits its own work, following the git rules for the message, history rewriting and pushing:
 
-- Commits land on the branch `plan.md` names, so the branch is reviewed with the rest of the plan; creating it is the first action after the go
-- One commit per top-level step, made the moment the step lands — then tick the box and append the short SHA: `- [x] **1. <step>** — a1b2c3d`
-- The message is a Conventional Commits subject, with no `Co-Authored-By` trailer
+- Commits land on the branch `plan.md` names, so the branch is reviewed with the rest of the plan; when it is not the current one, creating it is the first action after the go
+- One commit per top-level step, made the moment the step lands — then tick the box and append the short SHA: `### [x] 1. <step> — a1b2c3d`
 - Stage the step's files by path, never `git add -A` or `git add .`, so unrelated changes in the tree stay out
-- A failing hook gets fixed, never skipped with `--no-verify`
-- A bug found in an earlier step's commit is fixed into that commit with `git commit --fixup <sha>` and `git rebase --autosquash`, not stacked on top — except on a default branch, where rewriting needs asking first
-- Nothing is pushed unless the user says to
 
 ## plan.md
 
@@ -154,11 +158,18 @@ Branch: `<branch the commits land on>`
 
 ## Steps
 
-- [ ] **1. <step>**
-  - [ ] <action> — `src/auth/session.ts:88`
-  - [ ] <action> — `notes/998__retry_on_429.md`
-- [ ] **2. <step>**
-  - [ ] <action>
+### [ ] 1. <step>
+
+---
+
+- [ ] <action> — `src/auth/session.ts:88`
+- [ ] <action> — `notes/998__retry_on_429.md`
+
+### [ ] 2. <step>
+
+---
+
+- [ ] <action>
 
 ## Verification
 
@@ -175,17 +186,19 @@ Branch: `<branch the commits land on>`
 - `notes/999__rejected_zod_refine.md` — what it decided, in one line
 ```
 
-Every section is a list, and the sections above are all of them. No sub-heading inside a section, and no paragraph anywhere in the plan — a paragraph is content that belongs in a research file. A `>` remark of a line or two and a code block showing the shape of a call are the exceptions.
+Every section is a list, and the sections above are all of them. No sub-heading inside a section except the step headings, and no paragraph anywhere in the plan — a paragraph is content that belongs in a research file. A `>` remark of a line or two and a code block showing the shape of a call are the exceptions.
+
+Claude never writes between a step heading and its `---`. That zone is the user's.
 
 A line long enough to wrap three times in a terminal is two lines, or one line and a research file.
 
 ### Steps
 
-Steps are a checklist, never a table. One numbered top-level box per step, sub-steps nested two spaces under it.
+Steps are a checklist, never a table. Each step is a `### [ ] <n>. <step>` heading, one empty line as the user's review zone, a `---` line, then its sub-steps as a flat list of boxes.
 
 A sub-step is one action and one path, and stops there — no `so that`, no `rather than`, no clause defending the choice. The research file the step rests on carries that, and the step names it instead when the reason has to be one click away. A sub-step listing what to test is the one that keeps several clauses, one behaviour each.
 
-Tick a box the moment it lands; a step that gets dropped is struck through with the reason after it, not deleted.
+Tick a box the moment it lands; a step that gets dropped has its heading struck through with the reason after it, not deleted.
 
 ### Open questions
 
