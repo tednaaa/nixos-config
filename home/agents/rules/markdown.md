@@ -1,3 +1,4 @@
+- Everywhere — chat, docs, plans, commits, skills, rules — write compact and readable: every sentence carries a fact, no filler, no restating, no hedging.
 - NEVER write a markdown table — not in notes, chat or commits. A row is `- key — rest`; a row with several clauses is a `key` heading with a bullet per clause; two things compared are two labelled lists.
 
 ## Writing markdown
