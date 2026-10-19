@@ -21,7 +21,7 @@
 	conflictStyle = zdiff3
 
 [rerere]
-	enabled = true
+	enabled = false
 
 [fetch]
 	prune = true
