@@ -8,12 +8,15 @@
 		"figma@claude-plugins-official": true
 	},
 
+	"env": {
+		"CLAUDE_CODE_EFFORT_LEVEL": "high"
+	},
+
 	"permissions": {
 		"allow": ["Bash(agent-browser:*)"]
 	},
 
 	"editorMode": "vim",
-	"effortLevel": "high",
 	"tui": "fullscreen",
 	"autoCompactEnabled": false,
 	"disableRemoteControl": true,
