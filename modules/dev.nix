@@ -23,6 +23,7 @@
     dbeaver-bin
     dbgate
 
+    ffmpeg
     fzf
     skim
     jq
