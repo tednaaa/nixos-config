@@ -75,7 +75,7 @@ in
     ./theme
     ./foot
     ./btop
-    ./sops
+    # ./sops | NOTE: not need this for now
   ];
 
   home.username = username;

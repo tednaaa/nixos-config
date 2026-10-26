@@ -15,6 +15,7 @@
   sops = {
     age.keyFile = "${config.home.homeDirectory}/.config/sops/age/keys.txt";
 
+    # NOTE: will not work cause there is no secrets/ssh_config (I deleted)
     secrets.ssh_config = {
       sopsFile = ./secrets/ssh_config;
       format = "binary";
