@@ -49,6 +49,7 @@
     # zrok
 
     glab
+    teleport.client
     # kubectl
     # kubernetes-helm
     # k9s
