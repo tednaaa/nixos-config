@@ -6,6 +6,17 @@
 {
   programs = {
     niri.enable = true;
+
+    regreet = {
+      enable = true;
+      settings = {
+        background = {
+          path = ../home/wallpapers/seaside-pier-sunset.jpg;
+          fit = "Cover";
+        };
+        GTK.application_prefer_dark_theme = true;
+      };
+    };
   };
 
   # options picker
@@ -17,14 +28,13 @@
   console.useXkbConfig = lib.mkForce true;
 
   services = {
-    displayManager.ly = {
-      enable = true;
-      x11Support = false;
-      settings = {
-        animation = "matrix";
-        clock = "%a %H:%M";
-      };
-    };
+    greetd.settings.default_session.command = "${pkgs.dbus}/bin/dbus-run-session ${lib.getExe pkgs.niri} -c ${
+      pkgs.replaceVars ../home/niri/greeter.kdl {
+        outputs = ../home/niri/outputs.kdl;
+        niri = lib.getExe pkgs.niri;
+        regreet = lib.getExe pkgs.regreet;
+      }
+    }";
 
     gnome.gnome-keyring.enable = true;
     power-profiles-daemon.enable = true;

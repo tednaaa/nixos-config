@@ -1,0 +1,15 @@
+include "@outputs@"
+
+window-rule {
+	open-on-output "HDMI-A-1"
+	open-fullscreen true
+}
+
+binds {
+	Mod+MouseLeft { focus-column-first; }
+	Mod+MouseRight { focus-column-first; }
+}
+
+hotkey-overlay { skip-at-startup; }
+
+spawn-sh-at-startup "@regreet@; @niri@ msg action quit --skip-confirmation"
