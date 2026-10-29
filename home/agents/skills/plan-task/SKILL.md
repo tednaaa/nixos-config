@@ -1,18 +1,15 @@
 ---
-name: deep-work
-description: Use ONLY when the user types /deep-work or asks to resume an existing deep-work plan. Creates a .deep-work/<nnn>__<slug>/ workspace with research and a plan the user reviews inline. Do not load for ordinary research, brainstorming in chat, multi-step tasks, ticket IDs, questions about the skill, or plan mode.
+name: plan-task
+description: Use ONLY when the user types /plan-task or asks to resume an existing task plan. Writes research and a plan.md the user reviews inline into the .ai/<nnn>__<slug>/ task workspace. Do not load for ordinary research, brainstorming in chat, multi-step tasks, ticket IDs, questions about the skill, or plan mode.
 ---
 
-# Deep work
+# Task plan
 
 Research and plan go into the repo, so they outlive the context window. Nothing changes until the user has reviewed the plan and said to start.
 
 ## Workspace
 
-- Path: `<repo root>/.deep-work/<nnn>__<slug>/`, root from `git rev-parse --show-toplevel`. A task spanning repos keeps one workspace here; other repos' paths are `~/`-prefixed.
-- `.deep-work/.gitignore` holds `*` — create it if missing; nothing here is committed.
-- `<nnn>`: three digits counting down — the first is `999`, each next is the lowest existing minus one. A resumed workspace keeps its number.
-- `<slug>`: lowercase ASCII snake_case, at most five words. Ticket ID first when there is one (`ab_1234_limit_validation`), otherwise the summary (`token_refresh_race`). A non-English title is translated; the original goes verbatim in the `plan.md` heading.
+The task workspace from the workspace rule. This skill owns `plan.md`, `research/` and `notes/`.
 
 ```
 999__ab_1234_limit_validation/
@@ -21,17 +18,17 @@ Research and plan go into the repo, so they outlive the context window. Nothing 
   notes/999__rejected_zod_refine.md
 ```
 
-- `plan.md` — the only file the user reads
+- `plan.md` — the only file the user reads; its heading keeps the original task title verbatim
 - `research/` — one question per file, every claim with evidence: `path/to/file.ts:42`, command output, URL
 - `notes/` — the rest: mid-flight decisions, rejected ideas, edge cases, review feedback
 - Files are `<nnn>__<slug>.md`, counting down per folder, one concern each; a folder appears with its first file
-- Nothing else is created — no summaries, images, scripts or logs; command output goes into a note as an excerpt
-- `plan.md` lists every research and note file; a file it does not point at is lost
+- This skill creates nothing else — no summaries, images, scripts or logs; command output goes into a note as an excerpt
+- `plan.md` lists every research and note file, and `references/README.md` when it exists; a file it does not point at is lost
 
 ## Procedure
 
-1. List `.deep-work/`. A matching slug means resume: read `plan.md`, then research and notes newest first, and continue. A plan with no ticked box is under review: post its path and stop.
-2. Otherwise create the workspace and name its path in chat.
+1. Pick the workspace per the workspace rule. It has `plan.md` → resume: read it, then research and notes newest first, and continue. A plan with no ticked box is under review: post its path and stop.
+2. No `plan.md` yet → start one there; read `references/README.md` when it exists.
 3. Write research while investigating, not after.
 4. Write `plan.md`, post its path and a short summary, stop.
 

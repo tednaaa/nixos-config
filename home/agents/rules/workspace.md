@@ -1,0 +1,6 @@
+- Skills that save files keep them in one task workspace: `<repo root>/.ai/<nnn>__<slug>/`, root from `git rev-parse --show-toplevel`. Git ignores `.ai/` globally; never create a `.gitignore` there.
+- `<nnn>`: three digits counting down — the first is `999`, each next is the lowest existing minus one. A reused workspace keeps its number.
+- `<slug>`: lowercase ASCII snake_case, at most five words. Ticket ID first when there is one (`ab_1234_limit_validation`), otherwise the summary (`token_refresh_race`). A non-English title is translated.
+- Pick the workspace: one created or named earlier in the session → it; a slug with the same ticket ID or subject → it; none → create it and name its path in chat.
+- A task spanning repos keeps one workspace in the repo it started in; other repos' paths are `~/`-prefixed.
+- Each skill owns its subfolders and touches nothing else in the workspace.

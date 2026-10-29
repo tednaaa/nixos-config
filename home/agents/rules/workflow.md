@@ -1,5 +1,6 @@
-- Load `deep-work` only when I type `/deep-work` or ask to resume a plan — never for ordinary research, brainstorming in chat, multi-step tasks, ticket IDs or plan mode.
-- "brainstorm" → NEVER write or edit code; discuss options with their tradeoffs.
+- Load `plan-task` only when I type `/plan-task` or ask to resume a plan — never for ordinary research, brainstorming in chat, multi-step tasks, ticket IDs or plan mode.
+- Default is discussion: NEVER write, edit or delete files, or commit, until I explicitly ask for the change. Read and investigate freely, answer with a recommendation and its tradeoffs, then stop.
+- The go is an imperative about the change, in any language: "do it", "implement", "fix", "rename", "let's try". A question, an idea or "what do you think" is not the go; unsure → ask.
 - Change only what was asked. Leave adjacent working config in place; if moving it looks better, say so in one line. Never remove infrastructure, services or files outside the task without asking.
 - Package manager from the lockfile: `pnpm-lock.yaml` → `pnpm` / `pnpm dlx`, never `npm` / `npx`; same for yarn, bun, cargo, uv. A new dependency only after its design is agreed.
 - Skills, rules and shared docs never name specific projects, repos or clients; examples stay generic.

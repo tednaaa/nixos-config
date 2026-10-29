@@ -42,9 +42,7 @@ No recording yet.
 
 ## Take folder
 
-- `<repo root>/.demos/`, with `.gitignore` holding `*` — create when missing
-- task folder `<nnn>__<slug>/` — reuse one with the same slug; otherwise `<nnn>` counts down from `999`: the lowest existing minus one
-- take folder inside: `<YYYY-MM-DD>__<HH>_<MM>/`; taken → `__2`, `__3`
+- `demos/<YYYY-MM-DD>__<HH>_<MM>/` in the task workspace from the workspace rule; taken → `__2`, `__3`
 
 ## Take
 

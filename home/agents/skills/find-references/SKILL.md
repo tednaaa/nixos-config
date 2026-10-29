@@ -1,6 +1,6 @@
 ---
 name: find-references
-description: Use when the user asks to find design references, inspiration or how competitors implement a screen, component or flow. Searches Dribbble, Behance, the web and competitor products through agent-browser and saves screenshots to .references/<nnn>__<slug>/. Do not load for a screenshot of the user's own app or for recording a demo.
+description: Use when the user asks to find design references, inspiration or how competitors implement a screen, component or flow. Searches Dribbble, Behance, the web and competitor products through agent-browser and saves screenshots to references/ in the .ai/<nnn>__<slug>/ task workspace. Do not load for a screenshot of the user's own app or for recording a demo.
 argument-hint: "<what to find references for> [competitors or sites]"
 ---
 
@@ -25,17 +25,20 @@ agent-browser session id --scope worktree --prefix find-references
 ```
 
 - `export AGENT_BROWSER_SESSION=<printed name>` in every Bash call
+- `export AGENT_BROWSER_PROFILE=<repo root>/.ai/.chrome_profile` in every Bash call — the project's profile keeps consents, captcha clearance and logins between runs
 - `set viewport 1440 900`; mobile subject → `set device "iPhone 15"`
 - command details: `agent-browser skills get core`
 
 ## Folder
 
-- `<repo root>/.references/`, with `.gitignore` holding `*` — create when missing
-- subject folder `<nnn>__<slug>/`, `<slug>` in English snake_case — reuse one with the same slug and continue its file numbering; otherwise `<nnn>` counts down from `999`: the lowest existing minus one
+- `references/` in the task workspace from the workspace rule; no task in play → the subject is the task
+- an existing `references/` → continue its file numbering
 
 ## Sources
 
-Three groups; a source that blocks, demands login or shows a captcha → skip it and name it in the reply, never work around it.
+Three groups. A source that blocks, demands login or shows a captcha → set it aside, never work around it yourself.
+
+After the other sources, name the blocked ones and offer to solve them by hand: `close`, then `open --headed <url>`; the user solves it → capture in that window. Declined → skip it and name it in the reply.
 
 ### Concept shots
 
@@ -64,18 +67,35 @@ Three groups; a source that blocks, demands login or shows a captcha → skip it
 
 ## Index
 
-`<nnn>__<slug>/README.md`, one line per file:
+`references/README.md`:
 
 ```markdown
-- `03__linear__inline-status-picker.png` — https://linear.app/… — status changes in place, no modal
+# Status picker — references
+
+## Patterns
+- status changes in place, never a modal — 03, 07, 11
+
+## Where the picker opens
+
+### Inline menu under the status chip
+![](03__linear__inline-status-picker.png)
+- [linear](https://linear.app/…)
+- also: shortcut shown next to each status
+
+## Skipped
+- behance — captcha, declined to solve by hand
 ```
 
-- the idea is what to borrow, not a description of the image
-- reused folder → append
+- `##` — a decision the subject needs; `###` — the option a file shows, phrased as what to borrow, not a description of the image
+- one entry per file, in the group of its main idea, the one in its filename; other ideas on the shot → `- also:` bullets
+- entries in a group by file number
+- link text is the `<source>` from the filename
+- Patterns: 3–5 ideas repeating across sources, each with every file number showing it, `also` ones included
+- an existing index → add entries to their groups, open new groups as needed, update Patterns and Skipped
 
 ## Reply
 
 - the folder path
-- 3–5 patterns repeating across sources, each with its file numbers
+- the Patterns from the index
 - skipped sources and why
 - `close` the session

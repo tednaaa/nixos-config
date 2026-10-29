@@ -1,6 +1,6 @@
 ---
 name: create-issue
-description: Use when the user asks to create an issue, task or ticket in a tracker — GitLab, GitHub, YouTrack. Defines the title and body format and how to pick the tracker. Do not load for local TODOs or deep-work plans.
+description: Use when the user asks to create an issue, task or ticket in a tracker — GitLab, GitHub, YouTrack. Defines the title and body format and how to pick the tracker. Do not load for local TODOs or task plans.
 ---
 
 # Create issue
