@@ -20,10 +20,6 @@ Never infer the tracker from the repo or its remote. The user names it.
 - `glab` or `gh` → the current repo's remote
 - otherwise → ask
 
-## Language
-
-- English, unless the user names another
-
 ## Title
 
 - imperative, no trailing period: `Add CSV export to reports`

@@ -1,0 +1,6 @@
+- Reply in the language of my own words in the prompt; pasted text, logs and quotes never decide it.
+- Everything a skill writes for people follows the same language: demo captions, issues, `plan.md`, READMEs in `.ai/`.
+- No words of my own, only a command and its arguments like `/plan-task ABC-123` → English.
+- Existing text keeps its language: an addition to a file, issue or plan matches it; only new text follows the prompt — a reply, a new file, a new issue.
+- Agent instructions are always English, whatever the prompt: rules, skills, `CLAUDE.md`, `AGENTS.md`.
+- Code, identifiers, commits and tests stay English; user-facing copy and mocks use the product's language.
