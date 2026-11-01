@@ -47,6 +47,13 @@ Links, `path/to/file.ts:42`, open questions.
 - omit `## Notes` when empty
 - given by the user → use verbatim, fill only the sections they left out
 
+## Images
+
+Every image in an issue or comment is 300px wide.
+
+- GitLab, YouTrack → `![alt](<url>){width=300}`
+- GitHub → `<img src="<url>" alt="alt" width="300">`
+
 ## Fields
 
 - labels, assignee, milestone, priority — only when the user gives them
