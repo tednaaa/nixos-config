@@ -39,6 +39,8 @@
 
 			"g r": "editor::FindAllReferences",
 
+			"g o": "editor::OpenPermalinkToLine",
+
 			"g b": "editor::ToggleBreakpoint",
 
 			"g b p": "pane::TogglePinTab",
