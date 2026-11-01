@@ -58,14 +58,20 @@ After the other sources, name the blocked ones and offer to solve them by hand: 
 - the named ones, or 3–5 found with WebSearch for the product's domain
 - reach the subject in their public pages; behind a login → skip
 
+## Selection
+
+- 5 references by default; the number the user names wins
+- browse wider than that, then keep the set that differs most: layout, interaction model, visual style
+- no two from the same product or with the same look; a candidate close to a kept one → drop it
+- at least 3 sources
+
 ## Capture
 
 - dismiss cookie banners and popups before the screenshot
 - crop to the subject: `screenshot <selector> <path>`; whole layout matters → viewport; long page → `--full`
-- every state the subject has — empty, filled, error, hover, open — one file each
+- one file per reference, in the state that shows its idea best
 - file: `<nn>__<source>__<idea>.png`, `<nn>` two digits from `01`, `<source>` the domain without TLD
 - open each file after saving; off-subject, blank or covered by an overlay → delete and retake
-- target 12–20 files, at least 3 sources, no two showing the same idea
 
 ## Index
 
@@ -92,7 +98,7 @@ After the other sources, name the blocked ones and offer to solve them by hand: 
 - one entry per file, in the group of its main idea, the one in its filename; other ideas on the shot → `- also:` bullets
 - entries in a group by file number
 - link text is the `<source>` from the filename
-- Patterns: 3–5 ideas repeating across sources, each with every file number showing it, `also` ones included
+- Patterns: up to 3 ideas shared by two or more files, each with every file number showing it, `also` ones included; none → leave the section out
 - an existing index → add entries to their groups, open new groups as needed, update Patterns and Skipped
 
 ## Reply
