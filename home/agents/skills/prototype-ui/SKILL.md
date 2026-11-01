@@ -12,7 +12,7 @@ From `$ARGUMENTS` and the chat:
 
 - subject: the screen, component or flow — missing → ask
 - account — missing and the app asks for login → ask
-- `references/README.md` in the task workspace — read its Patterns and groups when present
+- `references/<scope>/README.md` for the subject in the task workspace — read its Patterns and groups when present; other scopes stay unread
 
 ## Preflight
 

@@ -1,6 +1,6 @@
 ---
 name: find-references
-description: Use when the user asks to find design references, inspiration or how competitors implement a screen, component or flow. Searches Dribbble, Behance, the web and competitor products through agent-browser and saves screenshots to references/ in the .ai/<nnn>__<slug>/ task workspace. Do not load for a screenshot of the user's own app or for recording a demo.
+description: Use when the user asks to find design references, inspiration or how competitors implement a screen, component or flow. Searches Dribbble, Behance, the web and competitor products through agent-browser and saves screenshots and an index to references/<scope>/ in the .ai/<nnn>__<slug>/ task workspace. Do not load for a screenshot of the user's own app or for recording a demo.
 argument-hint: "<what to find references for> [competitors or sites]"
 ---
 
@@ -31,8 +31,10 @@ agent-browser session id --scope worktree --prefix find-references
 
 ## Folder
 
-- `references/` in the task workspace from the workspace rule; no task in play → the subject is the task
-- an existing `references/` → continue its file numbering
+- `references/<scope>/` in the task workspace from the workspace rule; no task in play → the subject is the task
+- `<scope>`: the subject in lowercase ASCII snake_case, at most three words: `comment_composer`, `avatar_stack`
+- a scope for the same subject exists → continue its file numbering; a new subject → a new scope numbered from `01`
+- screenshots and a README straight in `references/` from an older run → move them into a scope named after their subject first
 
 ## Sources
 
@@ -67,7 +69,7 @@ After the other sources, name the blocked ones and offer to solve them by hand: 
 
 ## Index
 
-`references/README.md`:
+`references/<scope>/README.md`:
 
 ```markdown
 # Status picker — references

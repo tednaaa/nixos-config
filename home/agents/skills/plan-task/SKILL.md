@@ -23,12 +23,12 @@ The task workspace from the workspace rule. This skill owns `plan.md`, `research
 - `notes/` — the rest: mid-flight decisions, rejected ideas, edge cases, review feedback
 - Files are `<nnn>__<slug>.md`, counting down per folder, one concern each; a folder appears with its first file
 - This skill creates nothing else — no summaries, images, scripts or logs; command output goes into a note as an excerpt
-- `plan.md` lists every research and note file, and `references/README.md` when it exists; a file it does not point at is lost
+- `plan.md` lists every research and note file, and every `references/<scope>/README.md`; a file it does not point at is lost
 
 ## Procedure
 
 1. Pick the workspace per the workspace rule. It has `plan.md` → resume: read it, then research and notes newest first, and continue. A plan with no ticked box is under review: post its path and stop.
-2. No `plan.md` yet → start one there; read `references/README.md` when it exists.
+2. No `plan.md` yet → start one there; read every `references/<scope>/README.md`.
 3. Write research while investigating, not after.
 4. Write `plan.md`, post its path and a short summary, stop.
 
