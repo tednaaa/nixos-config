@@ -37,6 +37,7 @@
     git
     delta
     lazygit
+    gitleaks
 
     (callPackage ../packages/relkit.nix { })
     (callPackage ../packages/resto.nix { })
