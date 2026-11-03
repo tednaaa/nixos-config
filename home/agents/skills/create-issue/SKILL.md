@@ -31,21 +31,61 @@ Never infer the tracker from the repo or its remote. The user names it.
 
 ```markdown
 ## Context
-Why this is needed, 1–3 lines.
+Why this is needed.
 
 ## Goal
 What is true when it is done.
 
 ## Acceptance
-- [ ] observable criterion
-- [ ] observable criterion
+- [ ] checkable criterion
+- [ ] checkable criterion
 
 ## Notes
-Links, `path/to/file.ts:42`, open questions.
+- constraint, decision or open question
 ```
 
-- omit `## Notes` when empty
+Two layers, both short and without filler.
+
+### Top: Context and Goal
+
+- for anyone, support and managers included: plain words, no identifiers
+- 1–3 sentences each; the reader knows why and what changes without reading further
+
+### Bottom: Acceptance and Notes
+
+- for the developer: technical facts allowed, each in as few words as it takes
+- one fact per line, no connecting prose
+- `###` groups by owner — repo, host, service — instead of repeating it in every line
+- steps shared by all items go once above them; an item carries only what differs
+- one item per finding: what and where → what to do with it
+- a file by its name, not its full path
+- `## Acceptance` — as many criteria as matter, each checkable: a command, a query, a state
+- `## Notes` — omit when empty
+
+### Never cut
+
+- findings of work already done: what was found, where, the date of a snapshot
+- traps and non-obvious facts: what breaks, what only works one way
+- dependencies on other issues, and what need not wait for them
+- out of scope, and what comes after the task
+
+### Always cut
+
+- explanations of general knowledge
+- a fact repeated in another section
+- a file or a count quoted only as an example of the problem
+- the reason behind an obvious step, unless without it the step looks wrong
+
+### Also
+
+- section headings follow the issue's language
 - given by the user → use verbatim, fill only the sections they left out
+
+## Epics
+
+- the description never lists the children: the tracker shows them
+- the epic keeps what spans the children: principles, deferred work, approach options
+- a fact a child needs to get done stays in that child
 
 ## Images
 
