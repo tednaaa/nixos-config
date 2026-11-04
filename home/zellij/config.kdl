@@ -15,7 +15,7 @@ scrollback_lines_to_serialize 1000
 default_layout "default"
 default_mode "normal"
 simplified_ui false
-pane_frames true
+pane_frame_style "none"
 
 theme "kanagawa"
 

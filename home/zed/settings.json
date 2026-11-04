@@ -85,6 +85,15 @@
 
 	"file_types": {
 		"Nginx": ["**/nginx/*.conf"],
+		"YAML": ["**/*.yaml.j2"],
+		"Ansible": [
+			"ansible/playbooks/**/*.yaml",
+			"ansible/roles/*/tasks/*.yaml",
+			"ansible/roles/*/handlers/*.yaml",
+			"ansible/roles/*/defaults/*.yaml",
+			"ansible/group_vars/**/*.yaml",
+			"ansible/host_vars/**/*.yaml",
+		],
 	},
 
 	"lsp": {
@@ -122,6 +131,7 @@
 	"show_edit_predictions": true,
 
 	"auto_install_extensions": {
+		"ansible": true,
 		"cargo-tom": true,
 		"catppuccin": true,
 		"catppuccin-icons": true,
@@ -132,6 +142,7 @@
 		"git-firefly": true,
 		"github-theme": true,
 		"html": true,
+		"html-jinja": true,
 		"intellij-newui-theme": true,
 		"jetbrains-themes": true,
 		"kdl": true,
@@ -145,6 +156,7 @@
 		"sql": true,
 		"tokyo-night": true,
 		"toml": true,
+		"typst": true,
 		"vue": true,
 		"wakatime": true,
 	},
