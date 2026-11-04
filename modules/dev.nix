@@ -44,19 +44,20 @@
 
     netcat-openbsd
     openssh
+    openssl
     rsync
     bind
     cmake
     # zrok
 
     glab
+    ansible
+    opentofu
     teleport.client
     # kubectl
-    # kubernetes-helm
     # k9s
-    # ansible
-    # opentofu
     # fluxcd
+    # kubernetes-helm
 
     devenv
     uv
