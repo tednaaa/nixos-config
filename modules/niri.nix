@@ -4,20 +4,7 @@
   ...
 }:
 {
-  programs = {
-    niri.enable = true;
-
-    regreet = {
-      enable = true;
-      settings = {
-        background = {
-          path = ../home/wallpapers/seaside-pier-sunset.jpg;
-          fit = "Cover";
-        };
-        GTK.application_prefer_dark_theme = true;
-      };
-    };
-  };
+  programs.niri.enable = true;
 
   # options picker
   # `bat $(nix-build --no-out-link '<nixpkgs>' -A xkeyboard_config)/share/X11/xkb/rules/base.lst | fzf`
@@ -28,6 +15,17 @@
   console.useXkbConfig = lib.mkForce true;
 
   services = {
+    displayManager.regreet = {
+      enable = true;
+      settings = {
+        background = {
+          path = ../home/wallpapers/seaside-pier-sunset.jpg;
+          fit = "Cover";
+        };
+        GTK.application_prefer_dark_theme = true;
+      };
+    };
+
     greetd.settings.default_session.command = "${pkgs.dbus}/bin/dbus-run-session ${lib.getExe pkgs.niri} -c ${
       pkgs.replaceVars ../home/niri/greeter.kdl {
         outputs = ../home/niri/outputs.kdl;
