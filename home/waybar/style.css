@@ -9,12 +9,12 @@
 
 window#waybar {
 	background: transparent;
-	color: #cdd6f4;
+	color: #dfe1e5;
 }
 
 tooltip {
-	background: #1e1e2e;
-	color: #cdd6f4;
+	background: #1e1f22;
+	color: #dfe1e5;
 }
 
 #custom-notification,
@@ -30,9 +30,9 @@ tooltip {
 #tray,
 #window,
 #workspaces {
-	background: #1a1b26;
+	background: #191a1c;
 	padding: 0px 12px;
-	border: #1e1e2e 2px solid;
+	border: #26282b 2px solid;
 	border-radius: 8px;
 	margin: 5px;
 	margin-bottom: 0;
@@ -49,24 +49,24 @@ tooltip {
 
 #workspaces button.active,
 #workspaces button:hover {
-	color: orange;
-	background-color: #1e1e2e;
+	color: #6a9fee;
+	background-color: #26282b;
 }
 
 #battery.critical,
 #temperature.critical {
-	color: #e92d4d;
+	color: #f16f7a;
 }
 
 #battery.warning,
 #temperature.warning {
-	color: #fc4c02;
+	color: #f0995b;
 }
 
 #pulseaudio {
-	color: #89b4fa;
+	color: #6a9fee;
 }
 
 #pulseaudio.microphone {
-	color: #cba6f7;
+	color: #b28fef;
 }

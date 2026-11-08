@@ -17,7 +17,7 @@ default_mode "normal"
 simplified_ui false
 pane_frame_style "none"
 
-theme "kanagawa"
+theme "atlas"
 
 ui {
 	pane_frames {
