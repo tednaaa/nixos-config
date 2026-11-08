@@ -27,6 +27,4 @@ layout {
 		active-color "#7aa2f7"
 		inactive-color "#7aa2f7"
 	}
-
-	struts { top 3; }
 }

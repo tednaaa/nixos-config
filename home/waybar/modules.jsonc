@@ -1,4 +1,14 @@
 {
+	"group/left": {
+		"orientation": "inherit",
+		"modules": ["backlight", "battery", "network", "power-profiles-daemon", "niri/language", "tray"],
+	},
+
+	"group/right": {
+		"orientation": "inherit",
+		"modules": ["pulseaudio", "pulseaudio#microphone", "bluetooth", "custom/notification", "clock"],
+	},
+
 	// "hyprland/workspaces": {
 	// 	"on-scroll-up": "hyprctl dispatch workspace r-1",
 	// 	"on-scroll-down": "hyprctl dispatch workspace r+1",
@@ -20,7 +30,7 @@
 	},
 
 	"clock": {
-		"format": "{:%Y/%m/%d %H:%M}",
+		"format": "{:%a %d %b %H:%M}",
 		"tooltip-format": "<tt><small>{calendar}</small></tt>",
 		"calendar": {
 			"mode": "year",
@@ -146,7 +156,7 @@
 
 	"custom/notification": {
 		"tooltip": false,
-		"format": "{} {icon}",
+		"format": "{icon}",
 		"format-icons": {
 			"notification": "<span foreground='red'><sup></sup></span>",
 			"none": "",
