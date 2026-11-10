@@ -1,11 +1,8 @@
 { pkgs, lib, ... }:
 {
-  virtualisation.docker = {
+  virtualisation.docker.rootless = {
     enable = true;
-    rootless = {
-      enable = true;
-      setSocketVariable = true;
-    };
+    setSocketVariable = true;
   };
 
   systemd.user.services.docker.unitConfig.ConditionUser = lib.mkForce "!@system";
