@@ -7,11 +7,10 @@ function __claude_sessions_tsv
 				$first.cwd,
 				($first.timestamp[0:16] | sub("T"; " ")),
 				(
-					([.[] | .customTitle // empty] | last) as $custom
-					| ([.[] | .aiTitle // empty] | last) as $ai
-					| ([.[] | .lastPrompt // empty] | last) as $prompt
-					| [$custom, $ai] | map(select(.)) | if $custom == $ai then .[:1] end
-					| if length > 0 then join(" · ") else $prompt // "untitled" end
+					([.[] | .customTitle // empty] | last)
+					// ([.[] | .aiTitle // empty] | last)
+					// ([.[] | .lastPrompt // empty] | last)
+					// "untitled"
 					| gsub("[[:space:]]+"; " ")
 				),
 				$first.sessionId,
