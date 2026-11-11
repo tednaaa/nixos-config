@@ -2,3 +2,4 @@
 - NEVER test what the code already guarantees: a valibot/zod schema shape, types, a library or the language doing its job, a constant equal to its value, a function that only copies fields.
 - NEVER add a test through the same branch with the same kind of input as an existing one.
 - Fix bugs with TDD: a failing test that reproduces the bug first, then the fix.
+- A module without a test setup stays without one: fix the bug untested and say so in one line; a harness only when I ask.

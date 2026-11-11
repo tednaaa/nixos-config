@@ -1,0 +1,2 @@
+- OpenTofu over Terraform: commands are `tofu`; HCL and module sources stay the same.
+- OpenBao over Vault. The HashiCorp original appears only as compatibility context.

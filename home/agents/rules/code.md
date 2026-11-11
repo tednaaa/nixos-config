@@ -1,5 +1,6 @@
 - NEVER write comments. Code that needs explaining gets refactored; if it still does, ask me.
 - Exceptions, one compact line each: `TODO:` for deferred work, `NOTE:` for a fact code cannot express, the reason on a disabled lint rule (`// eslint-disable-next-line no-console -- CLI output`, or the language's equivalent).
+- Comments I wrote move with their code verbatim.
 - Reference code as a repo-relative path plus ONE line: `src/api/handlers/session.ts:142`. Never a range, absolute path, bare filename, `./` prefix or "line 142" in prose. Point at the most relevant line. Same form in chat and notes, so `gf` opens it.
 - Code and tests in English: identifiers, comments, test titles, commit-facing strings. Only user-facing copy and fixtures mirroring it use the product's language.
-- Environment names in full: `production`, `staging`, never `prod`, `stage`, `stag`.
+- Names in full words, casing as the repo has it: `digitalocean_monthly_cost`, never `do-cost`; `production`, `staging`, never `prod`, `stage`, `stag`.

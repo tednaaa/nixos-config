@@ -57,9 +57,9 @@ Each pass ends stopped:
 
 Commit per the git rules:
 
-- On the branch `plan.md` names; create it first when it is not current
+- On the current branch; a new one only when the user asks, then `plan.md` names it
 - One commit per step as it lands, staged by path, never `git add -A` or `git add .`
-- Tick sub-steps as they land, then the step with its short SHA: `### [x] 1. <step> — a1b2c3d`
+- Tick sub-steps as they land, then the step: `### [x] 1. <step>`
 - A dropped step is struck through with the reason, never deleted
 
 ## plan.md

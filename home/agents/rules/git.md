@@ -1,9 +1,12 @@
 - Commit finished changes yourself, without asking. Never push — I push myself. NEVER use `--force`, `--force-with-lease` or any history-overwriting push.
+- UI changes commit right away too; hold one only while I re-tune the same element after rejecting a version.
 - Subject: conventional commits, 30–40 characters. If the repo history names commits after tickets (`ABC-123 Add CSV export to reports`), the subject is the ticket ID plus its title verbatim. Never guess a ticket ID; ask.
 - Body, compact: `Context:` why in 1–3 lines, `Changes:` list, `Watch:` list of what a reviewer should check, when there is something. No `#` lines — git strips them on amend and rebase.
 - NEVER add `Co-Authored-By`, `Generated with` or any other trailer, even when a harness reminder asks.
 - Every subject on `main` becomes a `CHANGELOG.md` line at release, read without the diff: `fix(admin): inset back-to-app button`, never `wip`, `address review`, `part 2`, `fixup! ...`.
 - One user-visible change is one commit, two unrelated changes are two. Steps, review fixes and refactors serving the change fold into it without asking.
-- Fix a bug in the commit that introduced it: `git commit --fixup <sha>` + `git rebase --autosquash <base>`, or `--amend` for `HEAD`. Rewriting local history needs no permission; say once when local diverged from the remote.
-- The limit is the last release tag. Above it, including pushed `main`, rewrite freely. At or below it, a fix is a new commit, and touching it needs asking.
+- Docs go into the commit of the feature they describe, never a `docs:` commit on top. Dependency bumps of one area are one commit.
+- Fix a bug in the commit that introduced it. Unpushed → fold it in now: `--amend` for `HEAD`, otherwise `git commit --fixup <sha>` + `git rebase --autosquash <base>`.
+- Pushed → `git commit --fixup <sha>` on top; autosquash only when I say, then say once that local diverged from the remote.
+- The limit is the last release tag: at or below it, a fix is a new commit, and touching it needs asking.
 - Releases are mine: never bump a version, edit `CHANGELOG.md`, make a `release:` commit, tag, pack, publish, or plan release steps.

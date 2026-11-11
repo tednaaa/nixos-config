@@ -25,7 +25,7 @@ agent-browser session id --scope worktree --prefix prototype-ui
 ```
 
 - `export AGENT_BROWSER_SESSION=<printed name>` in every Bash call
-- `export AGENT_BROWSER_PROFILE=<repo root>/.ai/.chrome_profile` in every Bash call
+- `export AGENT_BROWSER_PROFILE=~/.agent-browser/profiles/<repo key>` in every Bash call, `<repo key>` as in `find-references`: the main checkout's path relative to `~`, `/` → `__`
 - command details: `agent-browser skills get core`
 
 ## Worktree

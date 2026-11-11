@@ -44,12 +44,13 @@ What is true when it is done.
 - constraint, decision or open question
 ```
 
-Two layers, both short and without filler.
+Two layers, both short and without filler. A rewrite comes out shorter than the version it replaces.
 
 ### Top: Context and Goal
 
 - for anyone, support and managers included: plain words, no identifiers
-- 1–3 sentences each; the reader knows why and what changes without reading further
+- 1–2 sentences each; the reader knows why and what changes without reading further
+- the general problem, never the change in progress that prompted it, its fields or migrations
 
 ### Bottom: Acceptance and Notes
 
@@ -59,15 +60,8 @@ Two layers, both short and without filler.
 - steps shared by all items go once above them; an item carries only what differs
 - one item per finding: what and where → what to do with it
 - a file by its name, not its full path
-- `## Acceptance` — as many criteria as matter, each checkable: a command, a query, a state
-- `## Notes` — omit when empty
-
-### Never cut
-
-- findings of work already done: what was found, where, the date of a snapshot
-- traps and non-obvious facts: what breaks, what only works one way
-- dependencies on other issues, and what need not wait for them
-- out of scope, and what comes after the task
+- `## Acceptance` — 2–3 criteria, each checkable: a command, a query, a state; a list of findings gets one per finding
+- `## Notes` — 3–5 lines, only what the work goes wrong without: a trap, a dependency, a required secret; omit when empty
 
 ### Always cut
 
@@ -75,6 +69,8 @@ Two layers, both short and without filler.
 - a fact repeated in another section
 - a file or a count quoted only as an example of the problem
 - the reason behind an obvious step, unless without it the step looks wrong
+- state snapshots, history of earlier approaches, rejected options, out-of-scope lists
+- commit hashes and commit lists: history gets rewritten
 
 ### Also
 
@@ -96,7 +92,8 @@ Every image in an issue or comment is 300px wide.
 
 ## Fields
 
-- labels, assignee, milestone, priority — only when the user gives them
+- labels, priority included — the project has a label set → pick from it yourself
+- assignee, milestone — only when the user gives them
 - a field the tracker requires and the user did not give → ask
 
 ## Reply

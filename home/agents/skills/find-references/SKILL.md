@@ -25,7 +25,8 @@ agent-browser session id --scope worktree --prefix find-references
 ```
 
 - `export AGENT_BROWSER_SESSION=<printed name>` in every Bash call
-- `export AGENT_BROWSER_PROFILE=<repo root>/.ai/.chrome_profile` in every Bash call — the project's profile keeps consents, captcha clearance and logins between runs
+- `export AGENT_BROWSER_PROFILE=~/.agent-browser/profiles/<repo key>` in every Bash call — the project's profile keeps consents, captcha clearance and logins between runs; outside the repo so dev-server watchers never see Chrome's writes
+- `<repo key>`: the main checkout's path relative to `~`, `/` → `__`: `work__shop__frontend`
 - `set viewport 1440 900`; mobile subject → `set device "iPhone 15"`
 - command details: `agent-browser skills get core`
 

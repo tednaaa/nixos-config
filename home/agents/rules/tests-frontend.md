@@ -5,3 +5,4 @@
   - current item — `aria-current`, not a highlight class
   - toggled button — `aria-pressed`, not an active class
   - anything else — role and accessible name
+- A semantic attribute lands in the commit of the test that needs it; no accessibility-only passes unless I ask.
