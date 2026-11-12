@@ -13,14 +13,14 @@
   };
 
   environment.systemPackages = with pkgs; [
-    # obsidian
+    obsidian
+    localsend
+    kdePackages.kdenlive
 
     obs-studio
     telegram-desktop
 
     firefox
     google-chrome
-
-    localsend
   ];
 }
