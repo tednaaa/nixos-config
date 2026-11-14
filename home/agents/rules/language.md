@@ -1,6 +1,6 @@
 - Reply in the language of my own words in the prompt; pasted text, logs and quotes never decide it.
 - A prompt that is only pasted text, such as a handoff note → reply in its language.
-- Everything a skill writes for people follows the same language: demo captions, `plan.md`, READMEs in `.ai/`.
+- Everything a skill writes for people follows the same language: demo captions, `plan.md`, `impl.md`, READMEs in `.ai/`.
 - No words of my own, only a command and its arguments like `/plan-task ABC-123` → English.
 - Existing text keeps its language: an addition to a file, issue or plan matches it.
 - A new README or doc matches the repo's other docs; a new issue matches the project's other issues; none yet → the prompt's language.
