@@ -1,5 +1,6 @@
 gui:
   showFileTree: false
+  scrollHeight: 15
 
 os:
   editPreset: zed
