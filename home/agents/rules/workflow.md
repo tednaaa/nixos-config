@@ -11,3 +11,4 @@
 - A hook rejects a commit → fix the cause, never `--no-verify`.
 - No lefthook config → still no checks; say once and suggest lefthook. Its setup: `pre-commit` only, with the linter, type-checker and tests related to staged files; no commit-message check.
 - husky or lint-staged → say once it should move to lefthook; migrate only when asked.
+- Creating an issue, ticket or task in a tracker → save a `project` memory: its ID or link and one line on what it is about. Details stay in the tracker; read them through its MCP or CLI when needed.
