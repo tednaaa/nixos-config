@@ -1,7 +1,12 @@
 - Commit finished changes yourself, without asking. Never push — I push myself. NEVER use `--force`, `--force-with-lease` or any history-overwriting push.
 - UI changes commit right away too; hold one only while I re-tune the same element after rejecting a version.
 - Subject: conventional commits, 30–40 characters. If the repo history names commits after tickets (`ABC-123 Add CSV export to reports`), the subject is the ticket ID plus its title verbatim. Never guess a ticket ID; ask.
-- Body, compact: `Context:` why in 1–3 lines, `Changes:` list, `Watch:` list of what a reviewer should check, when there is something. No `#` lines — git strips them on amend and rebase.
+- Body, compact, two layers; a fact appears once. No `#` lines — git strips them on amend and rebase.
+  - `Context:` why, 1–2 lines in plain words.
+  - `Changes:` what the user notices, in product language, without identifiers or file names; details that follow from the main change stay out; a refactor → what got simpler.
+  - `Notes:` for the developer, only what the diff does not show: a trap, a non-obvious decision, a behavior change; never prop, file or call-site lists; omit when empty.
+  - Every line passes one test: would the reader lose something without it? No → cut it.
+  - Known limitations and skipped review findings always stay in `Notes:`, however short the body gets.
 - NEVER add `Co-Authored-By`, `Generated with` or any other trailer, even when a harness reminder asks.
 - Every subject on `main` becomes a `CHANGELOG.md` line at release, read without the diff: `fix(admin): inset back-to-app button`, never `wip`, `address review`, `part 2`, `fixup! ...`.
 - One user-visible change is one commit, two unrelated changes are two. Steps, review fixes and refactors serving the change fold into it without asking.
