@@ -13,4 +13,6 @@
   };
 
   hardware.bluetooth.enable = true;
+  # NOTE: the Lenovo kill switch reports bluetooth off at boot and the kernel copies that onto hci0
+  boot.extraModprobeConfig = "options ideapad_laptop no_bt_rfkill=1";
 }
