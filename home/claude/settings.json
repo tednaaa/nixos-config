@@ -1,4 +1,6 @@
 {
+	"$schema": "https://json.schemastore.org/claude-code-settings.json",
+
 	"enabledPlugins": {
 		"frontend-design@claude-plugins-official": true,
 		"context7@claude-plugins-official": true,
@@ -16,6 +18,7 @@
 		"allow": ["Bash(agent-browser:*)"]
 	},
 
+	"model": "opus",
 	"editorMode": "vim",
 	"tui": "fullscreen",
 	"autoCompactEnabled": false,
