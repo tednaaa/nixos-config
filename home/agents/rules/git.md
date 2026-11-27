@@ -2,6 +2,8 @@
 - UI changes commit right away too; hold one only while I re-tune the same element after rejecting a version.
 - Subject: conventional commits, 30–40 characters. If the repo history names commits after tickets (`ABC-123 Add CSV export to reports`), the subject is the ticket ID plus its title verbatim. Never guess a ticket ID; ask.
 - Body, compact, two layers; a fact appears once. No `#` lines — git strips them on amend and rebase.
+  - Language follows the subject, labels included: an English subject → `Context:`, `Changes:`, `Notes:`; a Russian one → `Контекст:`, `Изменения:`, `Заметки:` and Russian text.
+  - Layout: `Context:` inline; `Changes:` and `Notes:` each a label on its own line, a blank line, then `- ` bullets, one fact per bullet; a blank line between sections.
   - `Context:` why, 1–2 lines in plain words.
   - `Changes:` what the user notices, in product language, without identifiers or file names; details that follow from the main change stay out; a refactor → what got simpler.
   - `Notes:` for the developer, only what the diff does not show: a trap, a non-obvious decision, a behavior change; never prop, file or call-site lists; omit when empty.

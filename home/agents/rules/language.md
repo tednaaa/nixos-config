@@ -5,4 +5,4 @@
 - Existing text keeps its language: an addition to a file, issue or plan matches it.
 - A new README or doc matches the repo's other docs; a new issue matches the project's other issues; none yet → the prompt's language.
 - Agent instructions are always English, whatever the prompt: rules, skills, `CLAUDE.md`, `AGENTS.md`.
-- Code, identifiers, commits and tests stay English; user-facing copy and mocks use the product's language.
+- Code, identifiers, commits and tests stay English, except a commit titled after a non-English ticket: its body follows the subject's language; user-facing copy and mocks use the product's language.
